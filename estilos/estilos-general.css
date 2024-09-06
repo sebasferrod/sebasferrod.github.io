@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(1, 22, 92);
+    background-color: #000213;
     color: white;
     font-family: Calibri, sans-serif;
 }
@@ -9,8 +9,157 @@ body{
     padding-right: 10px;
     padding-bottom: 10px;
     width: 75%;
+    margin-top: 5px;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgb(0, 2, 19);
+    background-color: #01165c;
 
+}
+
+.menu {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li {
+    float: left;
+}
+
+
+.menu ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+
+.menu ul li a:hover {
+    background-color: #111;
+}
+
+.categoria{
+    background-color: #00367c;
+    width: 75%;
+    padding: 15px;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.categoria h2 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+.categoria .contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    /*justify-content: space-evenly;*/
+}
+
+.estudio{
+    display: inline-block;
+    background-color: #0052bd;
+    width: 45%;
+    padding: 10px;
+    margin: 5px;
+}
+.trabajo {
+    display: inline-block;
+    background-color: #8b0000;
+    width: 45%;
+    padding: 10px;
+    margin: 5px;
+}
+.elemento{
+    background-color: #0052bd;
+    width: 50%;
+    padding: 10px;
+    margin: 5px;
+}
+.cabecera {
+    display: flex;
+    /*flex: wrap; /*AGREGADO*/
+    position: relative;
+}
+.cabecera h3 {
+    margin: 0;
+    margin-right: 5px;
+}
+.tiempo {
+    display: inline-block;
+    position: absolute;
+    right: 0%;
+    color: #b1b1b1;
+    /*float: right;*/
+}
+#experiencia {
+    background-color: #460000;
+    .cabecera {
+        flex-direction: column;
+        position: static;
+        .tiempo {
+            position: static;
+        }
+    }
+}
+
+@media screen and (max-width: 1450px){
+    .estudio .cabecera {
+        flex-direction: column;
+        position: static;
+    }
+    .estudio .tiempo {
+        position: static;
+    }
+}
+@media screen and (max-width: 1125px){
+    .categoria .contenedor {
+        /*display: flex;*/
+        justify-content: center;
+        /*align-items: stretch;*/
+    }
+    .estudio{
+        display: inline-block;
+        /*background-color: red;*/
+        width: 45%;
+    }
+    .trabajo {
+        /*display: inline-block;*/
+        width: 45%;
+    }
+}
+@media screen and (max-width: 880px){
+    .categoria .contenedor {
+        display: block;
+    }
+    .estudio {
+        width: 90%;
+    }
+    .estudio .cabecera {
+        flex-direction: row;
+        position: relative;
+    }
+    .estudio .cabecera .tiempo {
+        position: absolute;
+        right: 0%;
+    }
+    .trabajo {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 500px){
+    .estudio .cabecera {
+        flex-direction: column;
+        position: static;
+    }
+    .estudio .cabecera .tiempo {
+        position: static;
+    }
 }
