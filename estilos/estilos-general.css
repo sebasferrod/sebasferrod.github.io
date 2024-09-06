@@ -73,6 +73,7 @@ body{
 .trabajo {
     display: inline-block;
     background-color: #8b0000;
+    background-color: #0052bd;
     width: 45%;
     padding: 10px;
     margin: 5px;
@@ -100,7 +101,7 @@ body{
     /*float: right;*/
 }
 #experiencia {
-    background-color: #460000;
+    /*background-color: #460000;*/
     .cabecera {
         flex-direction: column;
         position: static;
