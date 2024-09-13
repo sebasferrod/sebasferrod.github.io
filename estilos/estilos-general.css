@@ -2,7 +2,28 @@ body{
     background-color: #000213;
     color: white;
     font-family: Calibri, sans-serif;
+    a {
+        /*display: block;*/
+        color: white;
+        /*text-align: center;*/
+        /*padding: 14px 20px;*/
+        /*text-decoration: none;*/
+    }
+    a:visited {
+        color: lightblue;
+    }
+
 }
+
+.imagen {
+    margin: 5px;
+    float: right;
+    background-color: #0052bd;
+    padding: 5px;
+    width: 150px;
+    border-radius: 5%;
+}
+
 #intro{
     padding-top: 1px;
     padding-left: 20px;
@@ -13,6 +34,8 @@ body{
     margin-left: auto;
     margin-right: auto;
     background-color: #01165c;
+    overflow: hidden;
+    /*border-radius: 20px;*/
 
 }
 
@@ -52,6 +75,7 @@ body{
     margin-top: 5px;
     margin-left: auto;
     margin-right: auto;
+    /*border-radius: 20px;*/
 }
 .categoria h2 {
     margin: 0;
@@ -62,7 +86,13 @@ body{
     flex-wrap: wrap;
     /*justify-content: space-evenly;*/
 }
-
+.elemento {
+    display: inline-block;
+    background-color: #0052bd;
+    width: 45%;
+    padding: 10px;
+    margin: 5px;
+}
 .estudio{
     display: inline-block;
     background-color: #0052bd;
@@ -72,15 +102,9 @@ body{
 }
 .trabajo {
     display: inline-block;
-    background-color: #8b0000;
+    /*background-color: #8b0000;*/
     background-color: #0052bd;
     width: 45%;
-    padding: 10px;
-    margin: 5px;
-}
-.elemento{
-    background-color: #0052bd;
-    width: 50%;
     padding: 10px;
     margin: 5px;
 }
@@ -123,7 +147,7 @@ body{
 @media screen and (max-width: 1125px){
     .categoria .contenedor {
         /*display: flex;*/
-        justify-content: center;
+        /*justify-content: center;*/
         /*align-items: stretch;*/
     }
     .estudio{
@@ -133,6 +157,9 @@ body{
     }
     .trabajo {
         /*display: inline-block;*/
+        width: 45%;
+    }
+    .elemento {
         width: 45%;
     }
 }
@@ -154,6 +181,9 @@ body{
     .trabajo {
         width: 90%;
     }
+    .elemento {
+        width: 90%;
+    }
 }
 @media screen and (max-width: 500px){
     .estudio .cabecera {
@@ -162,5 +192,13 @@ body{
     }
     .estudio .cabecera .tiempo {
         position: static;
+    }
+
+    #intro {
+        width: auto;
+    }
+
+    .categoria {
+        width: auto;
     }
 }
