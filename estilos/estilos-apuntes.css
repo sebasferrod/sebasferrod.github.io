@@ -1,0 +1,63 @@
+body {
+    background-color: #2c2c2c;
+    color: white;
+}
+.intro {
+    background-color: #ffaf64;
+    color: black;
+    padding: 15px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+}
+.tarjeta {
+    background-color: #ffca89;
+    width: 450px;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 5px;
+    color: black;
+    display: inline-block;
+}
+.indice {
+    background-color: #ffd39d;
+    color: black;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    height: 100vh;
+    text-align: center;
+    ul {
+        list-style: none;
+        padding: 0px;
+    }
+}
+
+#presentacion {
+    background-color: #ffd153;
+    color:#2c2c2c;
+    padding:15px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+@media screen and (max-width: 1032px) {
+    .tarjeta {
+        width: 44%;
+    }
+}
+@media screen and (max-width: 866px) {
+    .tarjeta {
+        width: 450px;
+    }
+}
+@media screen and (max-width: 530px) {
+    .tarjeta {
+        width: auto;
+        margin: 5px 0px;
+    }
+}

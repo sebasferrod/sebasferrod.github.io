@@ -145,11 +145,13 @@ body{
     }
 }
 @media screen and (max-width: 1125px){
+    /*
     .categoria .contenedor {
         /*display: flex;*/
         /*justify-content: center;*/
-        /*align-items: stretch;*/
+        /*align-items: stretch;
     }
+    */
     .estudio{
         display: inline-block;
         /*background-color: red;*/
