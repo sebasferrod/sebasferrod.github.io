@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/estilos/estilo-calculadora-fuerzas.css">
+    <title>Calculadora de fuerzas</title>
+</head>
+<body>
+    <!--Presentacion de la pagina web-->
+    <div class="presentacion">
+        <h1>Calculadora de fuerzas</h1>
+        <p>Permite sumar fuerzas sean o no concurrentes y averiguar la resultante.</p>
+    </div>
+    <!-- Panel de carga de datos de las fuerzas-->
+    <div id="cargador-fuerzas" class="panel">
+        <div class="campo">
+            <div class="etiqueta">Nombre:</div>
+            <input type="text" id="nombre-fuerza" name="nombre_fuerza">
+        </div>
+        <div class="campo">
+            <div class="etiqueta">Coordenadas:</div>
+            X <input type="number" id="coord_x" name="coordenada_x">
+            Y <input type="number" id="coord_y" name="coordenada_y">
+        </div>
+        <div class="campo">
+            <div class="etiqueta">Modulo:</div>
+            <input type="number" id="modulo" name="modulo_fuerza">
+        </div>
+        <div class="campo">
+            <div class="etiqueta">Angulo respecto eje x:</div>
+            <input type="number" id="angulo" name="angulo_respecto_x">
+        </div>
+        <div class="boton" id="boton-cargar">
+            Cargar
+        </div>
+    </div>
+
+    <!--Contenedor de los elementos fuerza cargados y calculados-->
+    <div id="coleccion-fuerzas" class="panel">
+        <div class="boton" id="boton-sumar">Sumar</div>
+        <div class="boton" id="boton-eliminar">Eliminar</div>
+        <div class="campo">
+            <div class="etiqueta">Nombre:</div>
+            <input type="text" id="nombre-fuerza-resultante" name="nombre_fuerza">
+        </div>
+        <div id='contenedor' class="contenedor">
+            <div class="elemento">
+                <div class="nombre-fuerza">
+                    <div class="etiqueta">Nombre: </div>
+                    Fuerza 1
+                </div>
+                <div class="coordenadas-fuerza">
+                    <div class="etiqueta">Coordenadas: </div>
+                    [0.0,0.0]</div>
+                <div class="modulo-fuerza">
+                    <div class="etiqueta">Modulo: </div>
+                    3</div>
+                <div class="angulo-fuerza">
+                    <div class="etiqueta">Angulo: </div>
+                    90</div>
+            </div>
+        </div>
+    </div>
+    <script type='module' src="/proyectos/calculadora-fuerzas/src/app.js"></script>
+</body>
+</html>
