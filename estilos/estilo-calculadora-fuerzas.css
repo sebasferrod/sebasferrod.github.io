@@ -47,8 +47,10 @@
 .contenedor {
     background-color: rgb(90, 90, 90);
     padding: 10px;
+    margin-bottom: 5px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .elemento {
     background-color: rgb(34, 34, 34);
@@ -60,4 +62,41 @@
 
 .seleccionado {
     background-color: rgb(0, 19, 61);
+}
+
+.reloj {
+    background-color: #00319c;
+    color: white;
+    width: auto;
+    padding: 10px;
+    margin: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    border: 1px solid black;
+    .campo{
+        display: inline-block;
+        .etiqueta{
+            width: 100px;
+            margin: auto;
+        }
+        input{
+            width: 100px;
+            margin: auto;
+        }
+    }
+    .campo *{
+        display: block;
+    }
+    .display{
+        background-color: #505050;
+        width: 100px;
+        padding: 5px;
+        display: inline-block;
+        border: 1px solid black;
+        font-size: 20px;
+        .etiqueta{
+            width: 100px;
+            margin: auto;
+        }
+    }
 }

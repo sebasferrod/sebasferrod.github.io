@@ -1,6 +1,7 @@
 import {Fuerza, sumaFuerzas, sumaNFuerzas} from '/proyectos/calculadora-fuerzas/src/fuerza.js';
 document.addEventListener('DOMContentLoaded', () => {
-    const formulario = document.getElementById('cargador-fuerzas');
+    //Esta linea de codigo podria borrarse.
+    //const formulario = document.getElementById('cargador-fuerzas');
     const nuevoElementoIngresado  = {
         nombre: document.getElementById('nombre-fuerza'),
         coord_x: document.getElementById('coord_x'),

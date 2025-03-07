@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/estilos/estilo-calculadora-fuerzas.css">
+    <title>Calculadora de tiempo</title>
+</head>
+<body>
+    <div class="presentacion">
+        <h1>Calculadora de tiempo</h1>
+        <p>Permite hacer sumas y restas de tiempo</p>
+    </div>
+    <div id="cargador-tiempos" class="panel">
+        <div class="contenedor">
+            <div id="reloj-hora" class="reloj">
+                <div class="titulo">Reloj de hora</div>
+                <div class="campo">
+                    <div class="etiqueta">Horas:</div>
+                    <input type="number" id="hora-actual" name="horas" min="0"  max="23">
+                </div>
+                <div class="campo">
+                    <div class="etiqueta">Minutos:</div>
+                    <input type="number" id="minuto-actual" name="minutos" min="0" max="59">
+                </div>
+                <div class="campo">
+                    <div class="etiqueta">Segundos:</div>
+                    <input type="number" id="segundo-actual" name="segundos" min="0" max="59">
+                </div>
+            </div>
+            <div id="reloj-rato" class="reloj">
+                <div class="titulo">Reloj de rato</div>
+                <div class="campo">
+                    <div class="etiqueta">Horas:</div>
+                    <input type="number" id="hora-rato" name="horas">
+                </div>
+                <div class="campo">
+                    <div class="etiqueta">Minutos:</div>
+                    <input type="number" id="minuto-rato" name="minutos">
+                </div>
+                <div class="campo">
+                    <div class="etiqueta">Segundos:</div>
+                    <input type="number" id="segundo-rato" name="segundos">
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="boton" id="boton-sumar">
+            Sumar
+        </div>
+
+        <div class="boton" id="boton-restar">
+            Restar
+        </div>
+
+        <div class="boton" id="boton-descanso">
+            Descanso
+        </div>
+        
+        <div class="contenedor">
+            <div id="reloj-resultante" class="reloj">
+                <div class="titulo">Reloj resultante</div>
+                <div class="display">
+                    <div class="etiqueta">Horas:</div>
+                    <div id="horas-resultantes" name="horas">00</div>
+                </div>
+                <div class="display">
+                    <div class="etiqueta">Minutos:</div>
+                    <div id="minutos-resultantes" name="minutos">00</div>
+                </div>
+                <div class="display">
+                    <div class="etiqueta">Segundos:</div>
+                    <div id="segundos-resultantes" name="segundos">00</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type='module' src="/proyectos/calculadora-tiempo/src/app.js"></script>
+</body>
+</html>
