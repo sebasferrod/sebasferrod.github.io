@@ -12,6 +12,21 @@
     background-color: darkgray;
     padding: 10px;
     margin-bottom: 5px;
+    display: block;
+    .campo {
+        .etiqueta {
+            width: 150px;
+            margin: auto;
+        }
+        input {
+            width: 150px;
+            margin: auto;
+        }
+    }
+    .display {
+        width: auto;
+        height: auto;
+    }
 }
 .campo {
     background-color: gray;
@@ -21,7 +36,22 @@
 }
 .etiqueta {
     display: inline-block;
-    width: 150px;
+    margin: 0px 5px;
+}
+.display{
+    background-color: #505050;
+    color: white;
+    width: 100px;
+    height: 10px;
+    padding: 5px;
+    margin-left: 5px;
+    display: inline-block;
+    border: 1px solid black;
+    .etiqueta{
+        width: 100px;
+        margin: auto;
+    }
+    
 }
 .boton {
     background-color: #006eff;
@@ -44,6 +74,25 @@
     background-color: #ff0000;
 }
 
+#boton-momento {
+    background-color: #009100;
+}
+#boton-momento:hover {
+    background-color: #00ff00;
+}
+
+#campo-momento {
+    display: inline-block;
+    .etiqueta {
+        display: inline-block;
+        width: auto;
+        margin: 0px 5px;
+    }
+    input{
+        width: 50px;
+    }
+}
+
 .contenedor {
     background-color: rgb(90, 90, 90);
     padding: 10px;
@@ -58,6 +107,16 @@
     margin: 5px;
     padding: 10px;
     display: inline-block;
+    .numero-original {
+        background-color: rgb(0, 95, 0);
+        padding: 5px;
+        margin-bottom: 3px;
+    }
+    .numero-inverso {
+        background-color: rgb(95, 0, 0);
+        padding: 5px;
+        margin-bottom: 3px;
+    }
 }
 
 .seleccionado {
@@ -90,7 +149,9 @@
     .display{
         background-color: #505050;
         width: 100px;
+        height: auto;
         padding: 5px;
+        margin-left: auto;
         display: inline-block;
         border: 1px solid black;
         font-size: 20px;

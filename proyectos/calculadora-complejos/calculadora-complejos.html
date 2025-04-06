@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/estilos/estilo-calculadora-fuerzas.css">
+    <title>Calculadora de inverso numero complejo</title>
+</head>
+<body>
+    <!--Presentacion-->
+    <div class="presentacion">
+        <h1>Calculadora de inverso de numero complejo</h1>
+        <p>Permite calcular el inverso de un numero complejo.</p>
+    </div>
+    <!-- Panel de carga de datos de los numeros complejos-->
+     <div id="cargador-nComplejo" class="panel">
+        <div class="campo">
+            <div class="etiqueta">Nombre:</div>
+            <input type="text" id="nombre-nComplejo" name="nombre_nComplejo">
+        </div>
+        <div class="campo">
+            <div class="etiqueta">Parte real:</div>
+            <input type="number" id="parte-real" name="parte_real">
+        </div>
+        <div class="campo">
+            <div class="etiqueta">Parte imaginaria:</div>
+            <input type="number" id="parte-imaginaria" name="parte_imaginaria">
+        </div>
+        <div class="boton" id="boton-cargar">
+            Cargar
+        </div>
+    </div>
+    <!--Contenedor de numeros complejos y sus conjugados-->
+    <div id="coleccion-nComplejos" class="panel">
+        <div class="boton" id="boton-eliminar">Eliminar</div>
+        <div class="boton" id="boton-dividir">Dividir</div>
+        <div class="boton" id="boton-multiplicar">Multiplicar</div>
+        <div class="boton" id="boton-sumar">Sumar</div>
+        <div class="boton" id="boton-restar">Restar</div>
+        <div class="boton" id="boton-modulo">Modulo</div>
+        <div class="display" id="display-modulo"></div>
+        <div id="contenedor" class="contenedor">
+        </div>
+    </div>
+
+    <script type='module' src="/proyectos/calculadora-complejos/src/app.js"></script>
+</body>
+</html>

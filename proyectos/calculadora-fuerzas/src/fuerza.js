@@ -70,8 +70,8 @@ const sumaNFuerzas = (coleccion) => {
     let r_y = 0;
     coleccion.forEach(fuerza => {
         r_x = r_x + fuerza.componenteX();
-        r_y = r_y + fuerza.componenteY()
-    })
+        r_y = r_y + fuerza.componenteY();
+    });
     const r_modulo = (r_x**2 + r_y**2) ** (1/2);
     const r_angulo = (Math.atan(r_y/r_x)*360)/(2*Math.PI);
     let coord_rx = 0.0;
@@ -87,8 +87,14 @@ const sumaNFuerzas = (coleccion) => {
     return r;
 }
 
-let p1 = new Fuerza([0.0,0.0], 1, 45);
-console.log(45/360)
-console.log(p1.componenteX());
-console.log(p1.getAngulo())
-console.log(Math.atan(1/1))
+/*
+Permite calcular el momento de un conjunto de fuerzas respecto a un punto dado.
+*/
+/*
+const momentoFuerzas = (coleccion, punto=[0,0]) => {
+    let r=0;
+    coleccion.forEach(fuerza => {
+        r = r + fuerza.getModulo()*(fuerza.getPosicion()[0]-punto[0]);
+    });
+}
+*/
