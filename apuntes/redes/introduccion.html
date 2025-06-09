@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/estilos/estilos-apuntes.css">
+    <title>Introduccion a Redes</title>
+</head>
+<body>
+    <div class="intro">
+        <h1>Introducción a Redes</h1>
+        <p>Las redes son un conjunto de dispositivos interconectados que permiten la comunicación y el intercambio de datos entre ellos. Se utilizan en una amplia variedad de aplicaciones, desde redes domésticas hasta redes empresariales y globales.</p>
+        <p>En este documento, exploraremos los conceptos básicos de las redes, incluyendo su definición, tipos, topologías y protocolos.</p>
+    </div>
+    <div class="contenedor">
+        <!--
+        <h2>Conceptos Clave</h2>
+        <ul>
+            <li><strong>Red:</strong> Conjunto de dispositivos interconectados.</li>
+            <li><strong>Protocolo:</strong> Conjunto de reglas que rigen la comunicación en una red.</li>
+            <li><strong>Topología:</strong> Forma en que los dispositivos están conectados en una red.</li>
+            <li><strong>Dispositivo de Red:</strong> Hardware utilizado para conectar y gestionar redes.</li>
+        </ul>
+        -->
+        <!-- Definicion de red y ejemplos-->
+        <div class="tarjeta">
+            <h2>Definición de Red</h2>
+            <p>Una red de computadoras es un conjunto de computadoras autonomas (posiblemante cada una con un SO diferente) interconectadas (conexiones alambricas o inalambricas) para intercambiar informacion.</p>
+            <h3>Ejemplo: Una red cliente-servidor</h3>
+            <!-- Insertar imagen -->
+            <p>Una red con dos clientes y un servidor.<br>Los clientes quiza usan Windows y el servidor seguramente use una distribucion de GNU/Linux.</p>
+            <h3>Ejemplo: Una red P2P</h3>
+            <!-- Insertar imagen -->
+            <p>Una red con dos computadoras que se conectan directamente entre si, sin un servidor central, sin servidores fijos, todos son iguales.<br>Ambas computadoras pueden ser Windows, GNU/Linux o cualquier otro SO.<br>Ni la funcionalidad ni la informacion esta centralizada.</p>
+            <h3>Ejemplo: Interconexion y topologia</h3>
+            <!-- Insertar imagen -->
+            <p>Topologia es la forma geometrica que tiene la red (la interconexion).</p>
+        </div>
+
+        <!-- Tipos de redes -->
+        <div class="tarjeta">
+            <h2>Tipos de Redes</h2>
+            <p>Las redes se pueden clasificar en diferentes tipos según su alcance, topología y tecnología utilizada.</p>
+            <ul>
+                <li><strong>Redes PAN (Personal Area Network):</strong> Dispositivos se conectan dentro del rango de una persona. Ejemplo Bluetooth.</li><br>
+                <li><strong>Redes LAN (Local Area Network):</strong> Redes de área local, generalmente limitadas a un edificio o campus.</li><br>
+                <li><strong>Redes MAN (Metropolitan Area Network):</strong> Estas redes abarcan la extencion de una ciudad o área metropolitana. Se pueden pensar como la interconexion de LANs.</li><br> <!-- De insertarse imagenes tambien se pueden nombrar ejemplos de tecnologias. -->
+                <li><strong>Redes WAN (Wide Area Network):</strong> Redes de área amplia, que abarcan grandes distancias geográficas. Pueden cruzar oceanos.</li><br>
+                <li><strong>Redes Interplanetarias (IPN):</strong> Se espera que <i>InterPlaNetary (IPN) Internet</i> sea el siguiente paso en el diseño y desarrollo de redes planetarias de espacio profundo.</li><br>
+            </ul>
+        </div>
+
+        <!-- Software de Red -->
+        <div class="tarjeta">
+            <h2>Software de red</h2>
+            <p>Para reducir la complejidad del diseño, la mayoria de las redes se organizan como una pila de capas.</p>
+            <p>Cada <b>capa</b> ofrece servicios a la capa superior mientras oculta los detalles de la implementacion.</p>
+            <p>Cuando dos capas (en diferentes hosts) se comunican entre si utilizan un <b>protocolo</b> (forma en que se lleva la comunicacion).</p>
+            <!-- Imagen ilustrativa de las capas de comunicacion entre dos host y el agregado de headers (cabeceras) para la comunicacion en cada capa. Pag. 14-->
+            <p>La capa le envía un mensaje a la capa 5 en otro host. Cada capa agrega un header que es información para la capa correspondiente en el host. Observar que los mensajes que se envían en la capa inferior tienen todos los headers de las capas involucradas.</p>
+            <h3>Servicios vs protocolos</h3>
+            <!-- Se puede insertar img ilustrativa del concepto -->
+            <p>Los servicios son funcionalidades o la interfaz disponible en una capa a las capas superiores.</p>
+            <p>Un protocolo es el conjunto de reglas para comunicarse entre capas del mismo nivel.</p>
+        </div>
+
+        <!-- Estandar de capas: Modelo OSI -->
+        <div class="tarjeta">
+            <h2>Modelo OSI</h2>
+            <p>El modelo OSI (Open Systems Interconnection) es un marco de referencia que define cómo se comunican los sistemas de red. Se compone de siete capas, cada una con funciones específicas.</p>
+            <p>Es una generalizacion del modelo TCP/IP y agrega dos capas nuevas y redefine la capa base en dos capas: Capa 1: Fisica y Capa 2: Enlace de datos.</p>
+            <ol reversed start="7">
+                <li><strong>Aplicación:</strong> Proporciona servicios de red a las aplicaciones del usuario final.</li><br>
+                <li><strong>Presentación:</strong> Se encarga de la representación de datos, cifrado y compresión.</li><br>
+                <li><strong>Sesión:</strong> Establece, mantiene y termina sesiones entre aplicaciones.</li><br>
+                <li><strong>Transporte:</strong> Proporciona la transferencia de datos entre sistemas finales y garantiza la entrega confiable.</li><br>
+                <li><strong>Red:</strong> Se encarga del direccionamiento y enrutamiento de datos entre redes.</li><br>
+                <li><strong>Enlace de Datos:</strong> Proporciona la transferencia de datos entre dispositivos en la misma red local.</li><br>
+                <li><strong>Física:</strong> Define las características físicas de la red, como cables y señales eléctricas.</li>
+            </ol>
+        </div>
+
+        <!-- Insertar imagen detallada de comunicacion entre dos host -->
+         
+    </div>
+</body>
+</html>
