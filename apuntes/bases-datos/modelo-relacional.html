@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/estilos/estilos-apuntes.css">
+    <title>Modelo relacional</title>
+</head>
+<body>
+    <div class="intro">
+        <h1>Modelo Relacional</h1>
+        <p>El modelo relacional es un modelo de datos que organiza la información en tablas (o relaciones) que pueden ser relacionadas entre sí. Cada tabla tiene filas y columnas, donde cada fila representa un registro y cada columna representa un atributo del registro.</p>
+    </div>
+    <div class="contenedor">
+        <!-- Definición del modelo relacional -->
+        <div class="tarjeta">
+            <h2>Definición del modelo relacional</h2>
+            <p>El modelo relacional fue propuesto por Edgar F. Codd en 1970 y se basa en la <span class="concepto">teoría de conjuntos</span> y la <span class="concepto">lógica de predicados</span>. En este modelo, los <b>datos</b> se representan como <b>relaciones (tablas)</b> y las <b>operaciones</b> sobre los datos se realizan mediante <b>álgebra relacional</b>.</p>
+        </div>
+
+        <!-- Características del modelo relacional -->
+        <div class="tarjeta">
+            <h2>Características del modelo relacional</h2>
+            <ul>
+                <li><b>Tablas:</b> Los datos se organizan en tablas.</li>
+                <li><b>Filas y columnas:</b> Cada tabla tiene filas (registros) y columnas (atributos).</li>
+                <li><b>Claves primarias:</b> Cada tabla tiene una clave primaria que identifica de manera única cada fila.</li>
+                <li><b>Relaciones:</b> Las tablas pueden estar relacionadas entre sí mediante claves foráneas.</li>
+                <li><b>Valores atomicos:</b> Valores que pueden almacenarce en una celda de la tabla.</li>
+            </ul>
+        </div>
+
+        <!-- Operaciones del modelo relacional -->
+        <div class="tarjeta">
+            <h2>Operaciones del modelo relacional</h2>
+            <p>Las operaciones básicas del álgebra relacional incluyen:</p>
+            <ul>
+                <li><b>Selección:</b> Filtra filas según una condición.</li>
+                <li><b>Proyección:</b> Selecciona columnas específicas de una tabla.</li>
+                <li><b>Unión:</b> Combina filas de dos tablas con la misma estructura.</li>
+                <li><b>Diferencia:</b> Devuelve las filas que están en una tabla pero no en otra.</li>
+                <li><b>Producto cartesiano:</b> Combina todas las filas de dos tablas.</li>
+                <li><b>Join:</b> Combina filas de dos tablas basándose en una relación.</li>
+            </ul>
+        </div>
+
+        <!-- Schema -->
+        <div class="tarjeta">
+            <h2>Schema</h2>
+            <p>El schema (o esquema) de una base de datos relacional define la estructura de las tablas, sus atributos y las relaciones entre ellas. Se puede representar mediante un diagrama entidad-relación (DER) o mediante un lenguaje de definición de datos (DDL).</p>
+            <p>El schema incluye:</p>
+            <ul>
+                <li><b>Nombre de la tabla:</b> Identificador único de la tabla.</li>
+                <li><b>Atributos:</b> Nombre y tipo de cada columna.</li>
+                <li><b>Claves primarias:</b> Atributo o conjunto de atributos que identifican de manera única cada fila.</li>
+                <li><b>Claves foráneas:</b> Atributo o conjunto de atributos que establecen una relación con otra tabla.</li>
+                <li><b>Restricciones:</b> Reglas que limitan los valores que pueden tomar los atributos (por ejemplo, NOT NULL, UNIQUE).</li>
+            </ul>
+            <p><b>Ejemplo:</b></p><p><code>&ltnombre_tabla&gt(PK: int, nombre: text, ... )</code></p>
+        </div>
+
+        <!-- Pasaje del DER al Modelo Relacional -->
+        <div class="tarjeta">
+            <h2>Pasaje del DER al Modelo Relacional</h2>
+            <p>Para convertir un diagrama entidad-relación (DER) a un modelo relacional, se siguen los siguientes pasos:</p>
+            <ol>
+                <li>Identificar las <b>entidades</b> y sus <b>atributos</b>.</li>
+                <li>Crear una tabla para cada entidad. <br><i>La <b>tabla</b> representa una <b>relacion</b> entre <b>atributos</b>, que conforman la entidad.</i></li>
+                <li>Definir la clave primaria para cada tabla.</li>
+                <li>Identificar las relaciones y crear tablas adicionales si es necesario.</li>
+                <li>Definir las claves foráneas para establecer las relaciones entre las tablas.</li>
+            </ol>
+            <p><b>Ejemplo:</b></p>
+            <p>Si tenemos un DER con las entidades "Cliente" y "Pedido", y una relación entre ellas, el modelo relacional podría ser:</p>
+            <p><code>Cliente (PK: ID_Cliente, nombre: text, ... )<br>Pedido (PK: ID_Pedido, fecha: date, FK: ID_Cliente)</code></p>
+        </div>
+
+        <!-- En caso de una Generalizacion o Especializacion Disyuntiva-->
+        <div class="tarjeta">
+            <h2>En caso de una Generalizacion o Especializacion disyuntiva </h2>
+            <p>En caso de tener una disyutinva en el DER, se agrega una columna tipo.</p>
+
+            <svg width="300" height="300" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" >
+                <defs>
+                    <style>
+                        .text2 { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold;}
+                        .titulo { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold;}
+                    </style>
+                </defs>
+                <use href="/apuntes/bases-datos/media/der-especializacion.svg#der-especializacion"/>
+                <!-- Modificaciones -->
+                <text x="87.5" y="102" fill="red" class="text2">d</text>
+                <text x="92" y="19" class="titulo">disyuntiva</text>
+            </svg>
+
+            <p><code>empleado(<u>legajo</u>, nombre, apellido, antiguedad, periodo_contrato, <span style="color: red">tipo</span>)</code></p>
+        </div>
+
+        <!-- En caso de una Generalizacion o Especializacion No Obligada-->
+        <div class="tarjeta">
+            <h2>En caso de tener una Generalizacion o Especializacion No Obligada</h2>
+            <p>En caso de tener una especializacion no excluyente, no se agrega columna tipo</p>
+            <svg width="300" height="300" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" >
+                <defs>
+                    <style>
+                        .text2 { font-family: Arial, sans-serif; font-size: 10px; }
+                        .titulo { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold;}
+                    </style>
+                </defs>
+                <use href="/apuntes/bases-datos/media/der-especializacion.svg#der-especializacion"/>
+                <!-- Modificaciones -->
+                <text x="88" y="102" fill="red" class="text2">o</text>
+                <text x="92" y="19" class="titulo">no obligada</text>
+            </svg>
+            <p><code>empleado(<u>legajo</u>, nombre, apellido, antiguedad, periodo_contrato)<span style="color: red"> <-- sin tipo</span></code></p>
+        </div>
+
+        <!-- Modelado de relaciones -->
+        <div class="tarjeta">
+            <h2>Modelado de relaciones</h2>
+            <p>El modelado de relaciones implica representar las relaciones entre entidades en el modelo relacional. Esto se hace mediante el uso de claves foráneas y la creación de tablas intermedias si es necesario.</p>
+            <p>Las relaciones pueden ser:</p>
+            <ul>
+                <li><b>Uno a Uno (1:1):</b> Una fila en una tabla se relaciona con una fila en otra tabla.</li>
+                <li><b>Uno a Muchos (1:N):</b> Una fila en una tabla se relaciona con muchas filas en otra tabla.</li>
+                <li><b>Muchos a Muchos (M:N):</b> Muchas filas en una tabla se relacionan con muchas filas en otra tabla. Se requiere una tabla intermedia para representar esta relación.</li>
+            </ul>
+            <p><b>Ejemplo:</b></p>
+            <p>Si tenemos una relación "Cliente" y "Pedido", donde un cliente puede hacer muchos pedidos, el modelo relacional sería:</p>
+            <p><code>Cliente (PK: ID_Cliente, nombre: text, ... )<br>Pedido (PK: ID_Pedido, fecha: date, FK: ID_Cliente)</code></p>
+            <p>Si tuviéramos una relación "Producto" y "Pedido", donde un pedido puede contener muchos productos y un producto puede estar en muchos pedidos, necesitaríamos una tabla intermedia:</p>
+            <p><code>Producto (PK: ID_Producto, nombre: text, ... )<br>Pedido (PK: ID_Pedido, fecha: date)<br>Pedido_Producto (FK: ID_Pedido, FK: ID_Producto)</code></p>
+        </div>
+
+        <!-- Primary Keys & Foreign Keys -->
+        <div class="tarjeta">
+            <h2>Primary Keys & Foreign Keys</h2>
+            <p>Las claves primarias (PK) son atributos que identifican de manera única cada fila en una tabla. Las claves foráneas (FK) son atributos que establecen una relación entre dos tablas.</p>
+            <p>Las claves foráneas se utilizan para referenciar la clave primaria de otra tabla, lo que permite establecer relaciones entre las tablas.</p>
+            <p><b>Ejemplo:</b></p>
+            <p><code>Cliente (<b>PK: ID_Cliente</b>, nombre: text)<br>Pedido (PK: ID_Pedido, fecha: date, <b>FK: ID_Cliente</b>)</code></p>
+            <p>En este caso, la clave foránea <span class="codigo">ID_Cliente</span> en la tabla <span class="codigo">Pedido</span> establece una relación con la clave primaria <span class="codigo">ID_Cliente</span> en la tabla <span class="codigo">Cliente</span>.</p>
+            <h3>PK (Primary Keys)</h3>
+            <ul>
+                <li>Atributo identificador</li>
+                <li>No se puede repetir</li>
+                <li>No puede ser <span class="codigo">null</span></li>
+            </ul>
+            <h3>FK (Foreign Keys)</h3>
+            <ul>
+                <li>Atributo de la PK de alguna relacion (tabla)</li>
+                <li>Atributo tiene que existir en alguna relacion</li>
+                <li>Puede ser repetida</li>
+                <li>Puede ser <span class="codigo">null</span></li>
+        </div>
+
+        <!-- Modelado relacion Uno a Uno (1:1) -->
+        <div class="tarjeta">
+            <h2>Modelado relacion Uno a Uno (1:1)</h2>
+            <p>En una relación uno a uno, cada fila de una tabla se relaciona con una fila de otra tabla. Para modelar esta relación, se puede agregar la clave primaria de una tabla como clave foránea en la otra tabla.</p>
+            <p><b>Ejemplo:</b></p>
+            <p>Si tenemos una relación "Empleado" y "Oficina", donde cada empleado tiene una oficina asignada y cada oficina tiene un solo empleado, el modelo relacional sería:</p>
+            <p><code>Empleado (PK: ID_Empleado, nombre: text, <b>FK: ID_Oficina</b>)<br>Oficina (PK: ID_Oficina, ubicacion: text)</code></p>
+            <p>En este caso, la clave foránea ID_Oficina en la tabla Empleado establece la relación uno a uno con la tabla Oficina.</p>
+        </div>
+
+        <!-- Modelado relacion Uno a Muchos (1:N) -->
+        <div class="tarjeta">
+            <h2>Modelado relacion Uno a Muchos (1:N)</h2>
+            <p>En una relación uno a muchos, una fila de una tabla se relaciona con muchas filas de otra tabla. Para modelar esta relación, se agrega la clave primaria de la tabla "uno" como clave foránea en la tabla "muchos".</p>
+            <p><b>Ejemplo:</b></p>
+            <p>Si tenemos una relación "Cliente" y "Pedido", donde un cliente puede hacer muchos pedidos, el modelo relacional sería:</p>
+            <p><code>Cliente (PK: ID_Cliente, nombre: text)<br>Pedido (PK: ID_Pedido, fecha: date, <b>FK: ID_Cliente</b>)</code></p>
+            <p>En este caso, la clave foránea ID_Cliente en la tabla Pedido establece la relación uno a muchos con la tabla Cliente.</p>
+        </div>
+
+        <!-- Modelado relacion Muchos a Muchos (M:N) -->
+        <div class="tarjeta">
+            <h2>Modelado relacion Muchos a Muchos (M:N)</h2>
+            <p>En una relación muchos a muchos, muchas filas de una tabla se relacionan con muchas filas de otra tabla. Para modelar esta relación, se crea una tabla intermedia que contiene las claves foráneas de ambas tablas.</p>
+            <p><b>Ejemplo:</b></p>
+            <p>Si tenemos una relación "Producto" y "Pedido", donde un pedido puede contener muchos productos y un producto puede estar en muchos pedidos, el modelo relacional sería:</p>
+            <p><code>Producto (PK: ID_Producto, nombre: text)<br>Pedido (PK: ID_Pedido, fecha: date)<br>Pedido_Producto (<b>FK: ID_Pedido</b>, <b>FK: ID_Producto</b>)</code></p>
+            <p>En este caso, la tabla Pedido_Producto establece la relación muchos a muchos entre Producto y Pedido.</p>
+        </div>
+    </div>
+</body>
+</html>

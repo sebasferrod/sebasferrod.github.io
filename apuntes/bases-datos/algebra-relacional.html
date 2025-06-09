@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/estilos/estilos-apuntes.css">
+        <title>Algebra Relacional</title>
+    </head>
+    <body>
+        <div class="intro">
+            <h1>Algebra Relacional</h1>
+            <p>Busca formalizar la manipulacion de relaciones, en el modelo relacional. Es un fundamento para la creacion de lenguajes de consulta (SQL).</p>
+        </div>
+        <div class="contenedor">
+            <!-- Repaso Modelo Relacional -->
+            <div class="tarjeta">
+                <h2>Modelo Relacional</h2>
+                <p>El modelo relacional es un modelo de datos basado en la teoría de conjuntos. Se basa en la representación de datos en tablas (relaciones) y permite realizar operaciones sobre estas tablas.</p>
+                <!--
+                <p>Una relación es un conjunto de tuplas (filas) que comparten la misma estructura (columnas).</p>
+                <p>Una relación se representa como una tabla, donde cada fila es una tupla y cada columna es un atributo.</p>
+                <p>Las relaciones se pueden manipular mediante operaciones algebraicas.</p>
+                <p>Las operaciones algebraicas son: selección, proyección, unión, diferencia, producto cartesiano y renombrado.</p>
+                <p>Las operaciones algebraicas se pueden combinar para formar consultas más complejas.</p>
+                <p>El álgebra relacional es un lenguaje formal que permite expresar consultas sobre bases de datos relacionales.</p>
+                <p>El álgebra relacional se basa en la teoría de conjuntos y permite realizar operaciones sobre relaciones.</p>
+                <p>El álgebra relacional es un lenguaje de bajo nivel, lo que significa que se centra en la manipulación de datos a nivel de relación.</p>
+                <p>El álgebra relacional es un lenguaje declarativo, lo que significa que se centra en el qué, no en el cómo.</p>
+                <p>El álgebra relacional es un lenguaje de consulta, lo que significa que se utiliza para consultar datos en una base de datos.</p>
+                <p>El álgebra relacional es un lenguaje de programación, lo que significa que se puede utilizar para programar aplicaciones.</p>
+                <p>El álgebra relacional es un lenguaje de definición, lo que significa que se puede utilizar para definir la estructura de una base de datos.</p>
+                <p>El álgebra relacional es un lenguaje de manipulación, lo que significa que se puede utilizar para manipular datos en una base de datos.</p>
+                <p>El álgebra relacional es un lenguaje de control, lo que significa que se puede utilizar para controlar el acceso a una base de datos.</p>
+                -->
+                <ul>
+                    <li>Relaciones (tablas)</li>
+                    <li>Records o tuplas (filas)</li>
+                    <li>Fields o atributos (columnas)</li>
+                </ul>
+                Observaciones:
+                <ul>
+                    <li>Los items de una fila pueden ser de distinto tipo</li>
+                    <li>Todos los items de una columna son del mismo tipo</li>
+                    <li>Los items de algunas columnas se pueden repetir, otros son unicos</li>
+                </ul>
+            </div>
+            <!-- Operaciones Algebraicas -->
+            <div class="tarjeta">
+                <h2>Operaciones</h2>
+                <ol>
+                    <li><b>Selección:</b> Permite filtrar filas de una relación según una condición.</li>
+                    <li><b>Proyección:</b> Permite seleccionar columnas específicas de una relación.</li>
+                    <li><b>Unión:</b> Combina dos relaciones con la misma estructura en una sola.</li>
+                    <li><b>Diferencia:</b> Devuelve las filas que están en una relación pero no en otra.</li>
+                    <li><b>Producto cartesiano:</b> Combina todas las filas de dos relaciones.</li>
+                    <li><b>Join:</b> Combina filas de dos relaciones basándose en una condición de coincidencia. Es equivalente a realizar un producto cartesiano y despues una seleccion.</li>
+                    <li><b>Interseccion:</b> Devuelve las filas que están en ambas relaciones.</li>
+                    <li><b>Diferencia:</b> Devuelve las filas que están en una relación pero no en la otra.</li>
+                    <li><b>Division</b>: Devuelve las filas de una relación que están relacionadas con todas las filas de otra relación.</li> <!--Chequear que esto sea verdad.-->
+                </ol>
+                <ul>
+                    <li>Cada operacion devuelve <b>siempre</b> una nueva relacion</li>
+                    <li>Las operaciones del Algebra Relacional se pueden combinar</li>
+                </ul>
+            </div>
+            <!-- Proyeccion -->
+            <div class="tarjeta">
+                <h2>Proyeccion</h2>
+                <p>La proyección es una operación que permite seleccionar columnas específicas de una relación. Se utiliza para reducir el número de columnas en el resultado de una consulta. Se representa con el símbolo π (pi). Y esta devuelve una nueva relacion solo con las columnas seleccionadas.</p>
+                <img src="/apuntes/bases-datos/media/latex-ejemplo-proyeccion-ar-2.svg" alt="Proyección"/>
+                <p>Ejemplo: Si tenemos una relación "Clientes" con las columnas "Nombre", "Apellido" y "Edad", y queremos obtener solo los nombres de los clientes, aplicaríamos la proyección de la siguiente manera:</p>
+                <img src="/apuntes/bases-datos/media/ejemplo-proyeccion-ar.svg" alt="Ejemplo de proyección"/>
+                <p>Esto devolvería una nueva relación con solo la columna "Nombre" de la relación "Clientes".</p>
+                <p>La proyección también permite eliminar duplicados en el resultado. Si la relación original tiene filas duplicadas, la proyección devolverá solo una fila por cada valor único en la columna seleccionada.</p>
+            </div>
+            <!-- Proyecccion: Observaciones -->
+            <div class="tarjeta">
+                <h2>Proyeccion: Observaciones</h2>
+                <p>La proyección es una operación fundamental en el álgebra relacional y se utiliza en muchas consultas SQL para obtener resultados específicos.</p>
+                <p>Ejemplo de proyección en SQL:</p>
+                <span class="codigo">SELECT Nombre FROM Clientes;</span>
+                <p>Esto selecciona solo la columna "Nombre" de la tabla "Clientes".</p>
+                <p><i>Recordar que las relaciones son <b>conjuntos</b> de tuplas!</i></p>
+                <p>Se puede <i>perder informacion/tuplas!</i></p>
+                <h3>Consideraciones:</h3>
+                <ul>
+                    <li><i>#columnas resultado</i> <b>es menor o igual a</b> <i>#columnas relacion inicial</i></li>
+                    <li><i>#filas resultado</i> <b>es menor o igual a</b> <i>#filas relacion inicial</i></li>
+                </ul>
+                
+            </div>
+
+            <!-- Seleccion -->
+            <div class="tarjeta">
+                <h2>Seleccion</h2>
+                <p>La selección es una operación que permite filtrar filas de una relación según una condición. Se utiliza para reducir el número de filas en el resultado de una consulta. Se representa con el símbolo σ (sigma). Y esta devuelve una nueva relacion solo con las filas que cumplen la condicion.</p>
+                <img src="/apuntes/bases-datos/media/latex-ar-seleccion.svg" alt="Seleccion"/>
+                <p>Ejemplo: Si tenemos una relación "Clientes" con las columnas "Nombre", "Apellido" y "Edad", y queremos obtener solo los clientes mayores de 18 años, aplicaríamos la selección de la siguiente manera:</p>
+                <img src="/apuntes/bases-datos/media/latex-ar-seleccion-ejemplo_1.svg" alt="Ejemplo de seleccion"/>
+                <p>Esto devolvería una nueva relación con solo las filas de la relación "Clientes" donde la columna "Edad" es mayor a 18.</p>
+                <p>La selección también permite combinar múltiples condiciones utilizando operadores lógicos como AND, OR y NOT.</p>
+                <p>Ejemplo de selección con múltiples condiciones:</p>
+                <img src="/apuntes/bases-datos/media/latex-ar-seleccion-ejemplo_2.svg" alt="Ejemplo de seleccion multiple"/>
+                <p>Esto devolvería una nueva relación con solo las filas de la relación "Clientes" donde la columna "Edad" es mayor a 18 y la columna "Nombre" es igual a "Juan".</p>
+                <h3>Observaciones:</h3>
+                <ul>
+                    <li><i>#columnas resultado == #columnas relacion inicial</i></li>
+                    <li><i>#filas resultado <= #filas reloacion inicial</i></li>
+                </ul>
+            </div>
+
+            <!-- Producto cartesiano -->
+            <div class="tarjeta">
+                <h2>Producto cartesiano</h2>
+                <p>El producto cartesiano es una operación que combina todas las filas de dos relaciones. Se utiliza para combinar datos de diferentes relaciones. Se representa con el símbolo × (multiplicación). Y esta devuelve una nueva relacion con todas las combinaciones posibles de filas de ambas relaciones.</p>
+                <img src="/apuntes/bases-datos/media/latex-ar-producto_cartesiano.svg" alt="Producto cartesiano"/>
+                <p>Ejemplo: Si tenemos una relación "Clientes" con las columnas "Nombre" y "Apellido", y otra relación "Pedidos" con las columnas "ID_Pedido" y "Fecha", el producto cartesiano de ambas relaciones sería:</p>
+                <img src="/apuntes/bases-datos/media/latex-ar-producto_cartesiano-ejemplo_1.svg" alt="Ejemplo de producto cartesiano"/>
+                <p>Esto devolvería una nueva relación con todas las combinaciones posibles de filas de ambas relaciones.</p>
+                <p>El producto cartesiano puede generar una gran cantidad de filas en el resultado, especialmente si las relaciones originales tienen muchas filas. Por lo tanto, es importante utilizarlo con precaución y combinarlo con otras operaciones como la selección para filtrar el resultado.</p>
+                <h3>Observaciones:</h3>
+                <ul>
+                    <li><i>#columnas resultado == #columnas relacion 1 + #columnas relacion 2</i></li>
+                    <li><i>#filas resultado == #filas relacion 1 * #filas relacion 2</i></li>
+                </ul>
+            </div>
+
+            <!-- Join -->
+            <div class="tarjeta">
+                <h2>Join</h2>
+                <p>El join es una operación que combina filas de dos relaciones basándose en una condición de coincidencia. Se utiliza para combinar datos relacionados de diferentes relaciones. Se representa con el símbolo ⨝ (join). Y esta devuelve una nueva relacion con las filas que cumplen la condicion de coincidencia.</p>
+                <img src="/apuntes/bases-datos/media/latex-ar-join.svg" alt="Join"/>
+                <p>Ejemplo: Si tenemos una relación "Clientes" con las columnas "ID_Cliente", "Nombre" y "Apellido", y otra relación "Pedidos" con las columnas "ID_Pedido", "ID_Cliente" y "Fecha", el join de ambas relaciones sería:</p>
+                <img src="/apuntes/bases-datos/media/latex-ar-join-ejemplo_1.svg" alt="Ejemplo de join"/>
+                <p>Esto devolvería una nueva relación con las filas de ambas relaciones donde la columna "ID_Cliente" de la relación "Clientes" coincide con la columna "ID_Cliente" de la relación "Pedidos".</p>
+                <p>El join es una operación muy útil para combinar datos relacionados de diferentes relaciones y se utiliza comúnmente en consultas SQL.</p>
+                <p>Ejemplo de join en SQL:</p>
+                <span class="codigo">SELECT Clientes.Nombre, Pedidos.Fecha FROM Clientes JOIN Pedidos ON Clientes.ID_Cliente = Pedidos.ID_Cliente;</span>
+                <p>Esto selecciona el nombre de los clientes y la fecha de los pedidos donde el ID del cliente coincide en ambas tablas.</p>
+                <h3>Observaciones:</h3>
+                <ul>
+                    <li>La operación de join se puede pensar como la forma de abreviar el producto cartesiano seguido de una selección.</li>
+                    <li><i>#columnas resultado == #columnas relacion 1 + #columnas relacion 2</i></li>
+                    <li><i>#filas resultado <= #filas relacion 1 * #filas relacion 2</i></li>
+                    <!--
+                    <li>El join puede ser de diferentes tipos, como inner join, left join, right join y full outer join, dependiendo de cómo se manejen las filas que no cumplen la condición de coincidencia.</li>
+                    <li>El inner join devuelve solo las filas que cumplen la condición de coincidencia en ambas relaciones.</li>
+                    <li>El left join devuelve todas las filas de la primera relación y las filas coincidentes de la segunda relación. Si no hay coincidencia, se rellenan con NULL.</li>
+                    <li>El right join devuelve todas las filas de la segunda relación y las filas coincidentes de la primera relación. Si no hay coincidencia, se rellenan con NULL.</li>
+                    <li>El full outer join devuelve todas las filas de ambas relaciones, rellenando con NULL donde no hay coincidencias.</li>
+                    <li>El join es una operación fundamental en el álgebra relacional y se utiliza en muchas consultas SQL para combinar datos relacionados.</li>
+                    -->
+                    <!--<li>El join se puede combinar con otras operaciones como la selección y la proyección para obtener resultados más específicos.</li>-->
+                    <li>El join puede generar una gran cantidad de filas en el resultado, especialmente si las relaciones originales tienen muchas filas. Por lo tanto, es importante utilizarlo con precaución y combinarlo con otras operaciones como la selección para filtrar el resultado.</li>
+                    <!--
+                    <li>El join es una operación costosa en términos de rendimiento, especialmente si las relaciones originales son grandes. Por lo tanto, es importante optimizar las consultas que utilizan joins para mejorar el rendimiento.</li>
+                    <li>El join se puede utilizar para combinar datos de diferentes bases de datos, siempre y cuando las relaciones tengan una estructura compatible.</li>
+                    <li>El join se puede utilizar para combinar datos de diferentes tablas en una base de datos, siempre y cuando las relaciones tengan una estructura compatible.</li>
+                    -->
+                </ul>
+            </div>
+
+            <!-- Natural Join-->
+            <div class="tarjeta">
+                <h2>Natural Join</h2>
+                <p>El natural join es una operación que combina filas de dos relaciones basándose en todas las columnas con el mismo nombre. Se utiliza para combinar datos relacionados de diferentes relaciones sin necesidad de especificar la condición de coincidencia. Se representa con el símbolo ⋈ (natural join). Y esta devuelve una nueva relacion con las filas que cumplen la condicion de coincidencia.</p>
+                <img src="/apuntes/bases-datos/media/latex-ar-natural_join.svg" alt="Natural Join"/>
+                <p>Ejemplo: Si tenemos una relación "Clientes" con las columnas "ID_Cliente", "Nombre" y "Apellido", y otra relación "Pedidos" con las columnas "ID_Cliente", "ID_Pedido" y "Fecha", el natural join de ambas relaciones sería:</p>
+                <img src="/apuntes/bases-datos/media/latex-ar-natural_join-ejemplo_1.svg" alt="Ejemplo de natural join"/>
+                <p>Esto devolvería una nueva relación con las filas de ambas relaciones donde la columna "ID_Cliente" coincide en ambas relaciones.</p>
+                <p>El natural join es una operación muy útil para combinar datos relacionados de diferentes relaciones sin necesidad de especificar la condición de coincidencia. Se utiliza comúnmente en consultas SQL.</p>
+                <p>Ejemplo de natural join en SQL:</p>
+                <span class="codigo">SELECT * FROM Clientes NATURAL JOIN Pedidos;</span>
+                <p>Esto selecciona todas las columnas de ambas tablas donde el ID del cliente coincide en ambas tablas.</p>
+                <h3>Observaciones:</h3>
+                <ul>
+                    <li>El natural join es una forma conveniente de combinar datos relacionados sin necesidad de especificar la condición de coincidencia.</li>
+                    <li>El natural join elimina automáticamente las columnas duplicadas en el resultado.</li>
+                    <li>El natural join se puede combinar con otras operaciones como la selección y la proyección para obtener resultados más específicos.</li>
+                    <li>El natural join es una operación costosa en términos de rendimiento, especialmente si las relaciones originales son grandes. Por lo tanto, es importante optimizar las consultas que utilizan natural joins para mejorar el rendimiento.</li>
+                </ul>
+            </div>
+
+            <!-- Union -->
+            <div class="tarjeta">
+                <h2>Union</h2>
+                <p>La unión es una operación que combina dos relaciones con la misma estructura en una sola. Se utiliza para combinar datos de diferentes relaciones que tienen la misma estructura. Se representa con el símbolo ∪ (unión). Y esta devuelve una nueva relacion con todas las filas de ambas relaciones.</p>
+                <img src="/apuntes/bases-datos/media/latex-ar-union.svg" alt="Union"/>
+                <p>Ejemplo: Si tenemos una relación "Clientes_A" con las columnas "ID_Cliente", "Nombre" y "Apellido", y otra relación "Clientes_B" con las mismas columnas, la unión de ambas relaciones sería:</p>
+                <img src="/apuntes/bases-datos/media/latex-ar-union-ejemplo_1.svg" alt="Ejemplo de union"/>
+                <p>Esto devolvería una nueva relación con todas las filas de ambas relaciones, eliminando duplicados.</p>
+                <p>Une dos tablas. <i>Es una operacion de conjuntos (tuplas).</i></p>
+                <p>Las tablas deben ser <b>schema compatibles</b>--i.e. misma cantidad y tipos de atributos</p>
+                <p>Ejemplo de unión en SQL:</p>
+                <span class="codigo">SELECT * FROM Clientes_A UNION SELECT * FROM Clientes_B;</span>
+                <p>Esto selecciona todas las columnas de ambas tablas y combina los resultados, eliminando duplicados.</p>
+                <h3>Observaciones:</h3>
+                <ul>
+                    <li><i>#columnas resultado</i> <b>es igual</b> a <i>#columnas R1 (o #columnas R2)</i></li>
+                    <li><i>#filas resultado</i> <b>es menor o igual</b> a la <b>suma</b> de <i>#filas R1 y #filas R2</i></li>
+                    <li>La unión es una operación fundamental en el álgebra relacional y se utiliza en muchas consultas SQL para combinar datos de diferentes relaciones.</li>
+                </ul>
+            </div>
+
+            <!-- Interseccion -->
+            <div class="tarjeta">
+                <h2>Intersección</h2>
+                <p>La intersección es una operación que devuelve las filas que están en ambas relaciones. Se utiliza para combinar datos de diferentes relaciones que tienen la misma estructura. Se representa con el símbolo ∩ (intersección). Y esta devuelve una nueva relacion con las filas que están en ambas relaciones.</p>
+                <img src="/apuntes/bases-datos/media/latex-ar-interseccion.svg" alt="Intersección"/>
+                <p>Ejemplo: Si tenemos una relación "Clientes_A" con las columnas "ID_Cliente", "Nombre" y "Apellido", y otra relación "Clientes_B" con las mismas columnas, la intersección de ambas relaciones sería:</p>
+                <img src="/apuntes/bases-datos/media/latex-ar-interseccion-ejemplo_1.svg" alt="Ejemplo de intersección"/>
+                <p>Esto devolvería una nueva relación con solo las filas que están en ambas relaciones.</p>
+                <p>Quedan las filas que están en ambas tablas. <i>Es una operación de conjuntos.</i></p>
+                <p>Las tablas deben ser <b>schema compatibles</b> -i.e. misma cantidad y tipos de atributos.</p>
+                <p>Ejemplo de intersección en SQL:</p>
+                <span class="codigo">SELECT * FROM Clientes_A INTERSECT SELECT * FROM Clientes_B;</span>
+                <p>Esto selecciona todas las columnas de ambas tablas y devuelve solo las filas que están en ambas tablas.</p>
+                <h3>Observaciones:</h3>
+                <ul>
+                    <li><i>#columnas resultado</i> <b>es igual</b> a <i>#columnas R1 (o #columnas R2)</i></li>
+                    <li><i>#filas resultado</i> <b>es menor o igual</b> a la menor de <i>#filas R1 y #filas R2</i></li>
+                    <li>La intersección es una operación fundamental en el álgebra relacional y se utiliza en muchas consultas SQL para combinar datos de diferentes relaciones.</li>
+                </ul>
+            </div>
+
+            <!-- Diferencia -->
+            <div class="tarjeta">
+                <h2>Diferencia</h2>
+                <p>La diferencia es una operación que devuelve las filas que están en una relación pero no en otra. Se utiliza para combinar datos de diferentes relaciones que tienen la misma estructura. Se representa con el símbolo - (diferencia). Y esta devuelve una nueva relacion con las filas que están en la primera relación pero no en la segunda.</p>
+                <img src="/apuntes/bases-datos/media/latex-ar-diferencia.svg" alt="Diferencia"/>
+                <p>Ejemplo: Si tenemos una relación "Clientes_A" con las columnas "ID_Cliente", "Nombre" y "Apellido", y otra relación "Clientes_B" con las mismas columnas, la diferencia de ambas relaciones sería:</p>
+                <img src="/apuntes/bases-datos/media/latex-ar-diferencia-ejemplo_1.svg" alt="Ejemplo de diferencia"/>
+                <p>Esto devolvería una nueva relación con solo las filas que están en la relación "Clientes_A" pero no en la relación "Clientes_B".</p>
+                <p>Quedan las filas que están en la primera tabla pero no en la segunda. <i>Es una operación de conjuntos.</i></p>
+                <p>Las tablas deben ser <b>schema compatibles</b> -i.e. misma cantidad y tipos de atributos.</p>
+                <p>Ejemplo de diferencia en SQL:</p>
+                <span class="codigo">SELECT * FROM Clientes_A EXCEPT SELECT * FROM Clientes_B;</span>
+                <p>Esto selecciona todas las columnas de ambas tablas y devuelve solo las filas que están en la tabla "Clientes_A" pero no en la tabla "Clientes_B".</p>
+                <h3>Observaciones:</h3>
+                <ul>
+                    <li><i>#columnas resultado</i> <b>es igual</b> a <i>#columnas R1 (o #columnas R2)</i></li>
+                    <li><i>#filas resultado</i> <b>es menor o igual</b> a <i>#filas R1</i></li>
+                    <li>La diferencia es una operación fundamental en el álgebra relacional y se utiliza en muchas consultas SQL para combinar datos de diferentes relaciones.</li>
+                </ul>
+                <p><i>¡Ojo! La diferencia, en general, no es conmutativa:</i></p>
+                <p><i>R1 - R2 != R2 - R1</i></p>
+            </div>
+
+            <!-- Division -->
+            <div class="tarjeta">
+                <h2>Division</h2>
+                <p>La división es una operación que devuelve las filas de una relación que están relacionadas con todas las filas de otra relación. Se utiliza para combinar datos de diferentes relaciones. Se representa con el símbolo ÷ (división). Y esta devuelve una nueva relacion con las filas que están en la primera relación y están relacionadas con todas las filas de la segunda relación.</p>
+                <img src="/apuntes/bases-datos/media/latex-ar-division_2.svg" alt="Division"/>
+                <p>Ejemplo: Si tenemos una relación "Clientes" con las columnas "ID_Cliente", "Nombre" y "Apellido", y otra relación "Pedidos" con las columnas "ID_Pedido" y "ID_Cliente", la división de ambas relaciones sería:</p>
+                <img src="/apuntes/bases-datos/media/latex-ar-division-ejemplo_1.svg" alt="Ejemplo de division"/>
+                <p>Esto devolvería una nueva relación con solo las filas de la relación "Clientes" que están relacionadas con todas las filas de la relación "Pedidos".</p>
+                <!-- Falta incluir instruccion SQL equivalente a la division. Agregar cuando se obtenga el conocimiento respectivo -->
+            </div>
+
+            <!-- Renombramiento -->
+            <div class="tarjeta">
+                <h2>Renombramiento</h2>
+                <p>El renombramiento es una operación que permite cambiar el nombre de una relación o de sus atributos. Se utiliza para facilitar la lectura y comprensión de las consultas. Se representa con el símbolo ρ (rho). Y esta devuelve una nueva relacion con los nombres de la relacion o atributos cambiados.</p>
+                <img src="/apuntes/bases-datos/media/latex-ar-renombramiento.svg" alt="Renombramiento"/>
+                <p>Ejemplo: Si tenemos una relación "Clientes" con las columnas "ID_Cliente", "Nombre" y "Apellido", y queremos cambiar el nombre de la relación a "Clientes_Nuevos", aplicaríamos el renombramiento de la siguiente manera:</p>
+                <img src="/apuntes/bases-datos/media/latex-ar-renombramiento-ejemplo_1.svg" alt="Ejemplo de renombramiento"/>
+                <p>Esto devolvería una nueva relación con el nombre "Clientes_Nuevos" y las mismas columnas que la relación original.</p>
+                <p>El renombramiento también permite cambiar el nombre de los atributos de una relación. Por ejemplo, si queremos cambiar el nombre de la columna "Nombre" a "Nombre_Cliente", aplicaríamos el renombramiento de la siguiente manera:</p>
+                <img src="/apuntes/bases-datos/media/latex-ar-renombramiento-ejemplo_2.svg" alt="Ejemplo de renombramiento atributos"/>
+                <p>Esto devolvería una nueva relación con el nombre de la columna "Nombre" cambiado a "Nombre_Cliente".</p>
+            </div>
+
+            <!-- Bibliografia -->
+            <div class="tarjeta">
+                <h2>Bibliografía</h2>
+                <p>El álgebra relacional es un tema fundamental en el estudio de bases de datos y se puede encontrar en muchos libros y recursos en línea.</p>
+                <p>La bibliografia en concreto para estos apuntes es</p>
+                <p>Elmasri and Navathe, Fundamentals of database systems (7th edition)</p>
+                <ul><li>Capitulo 8, secciones 8.1, 8.2, 8.3</li></ul>
+                <p>Algunos libros recomendados son:</p>
+                <ul>
+                    <li><i>Database System Concepts</i> de Silberschatz, Korth y Sudarshan.</li>
+                    <li><i>Fundamentals of Database Systems</i> de Elmasri y Navathe.</li>
+                    <li><i>Database Management Systems</i> de Raghu Ramakrishnan y Johannes Gehrke.</li>
+                </ul>
+            </div>
+
+            <!-- Creditos -->
+            <div class="tarjeta">
+                <h2>Créditos</h2>
+                <p>Estos apuntes fueron creados basados en las clases de la <b>Licenciatura en Sistemas</b> de la <i>Universidad Nacional General Sarmiento</i>.</p>
+                <p>Si tienes alguna pregunta o comentario, no dudes en contactarme.</p>
+                <p>Email: sebasfrod@gmail.com</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/estilos/estilos-apuntes.css">
+    <title>DER - Diagrama Entidad Relacion</title>
+</head>
+<body>
+    <div class="intro">
+        <h1>Diagrama Entidad Relación (DER)</h1>
+        <p>El Diagrama Entidad Relación (DER) es una herramienta gráfica utilizada para representar la estructura de una base de datos. Permite visualizar las entidades, sus atributos y las relaciones entre ellas.</p>
+    </div>
+    <div class="contenedor">
+        <!-- DER Tarjeta descriptiva de origen -->
+        <div class="tarjeta">
+            <h2>DER - Diagrama Entidad Relacion</h2>
+            <p><b>Autores:</b> <i>Peter Pin-Shan Chen</i></p>
+            <p><b>Bibliografia:</b> <i>The Entity-Relationship Model: Toward A Unified View of Data.</i></p>
+            
+        </div>
+        <!-- Entidades -->
+        <div class="tarjeta">
+            <h2>Entidades</h2>
+            <p>Las entidades son objetos o conceptos del mundo real que tienen una existencia independiente. La <b>entidad</b> es el objeto de interes. Cada entidad se representa como un rectángulo en el DER.</p>
+            <p>No se repiten entidades.</p>
+            <ul>
+                <li><b>Ejemplo:</b> Cliente, Producto, Pedido.</li>
+            </ul>
+            <p><b>Normativa:</b> Conjunto de entidades se representa con sustantivo singular y en minuscula.</p>
+            <p><b>Entidades debiles:</b> dependen de la existencia de otra entidad. Se representan con un doble cuadrado.</p>
+        </div>
+
+        <!-- Atributos -->
+        <div class="tarjeta">
+            <h2>Atributos</h2>
+            <p>Los atributos son las propiedades o características de una entidad. Se representan como óvalos conectados a la entidad correspondiente.</p>
+            <ul>
+                <li><b>Ejemplo:</b> Nombre, Precio, Fecha de Pedido.</li>
+            </ul>
+            <p><b>Atributos multivaluados:</b> Se representan como un óvalo doble. El problema con los atributos multivaluados es que no se pueden representar en una tabla relacional. Se reemplazan con una entidad separada con atributos.</p>
+            <p><b>Atributos derivados:</b> Se representan como un óvalo punteado.</p>
+            <ul><li><b>Ejemplo:</b> Edad (derivada de la fecha de nacimiento).</li></ul>
+        </div>
+
+        <!-- Relaciones -->
+        <div class="tarjeta">
+            <h2>Relaciones</h2>
+            <p>Las relaciones representan cómo las entidades están conectadas entre sí. Se representan como rombos en el DER.</p>
+            <p> Asociacion de entidades, verbo, conjunto de relaciones.</p>
+            <ul>
+                <li><b>Ejemplo:</b> Un Cliente realiza un Pedido.</li>
+            </ul>
+            <p>Las <i>relaciones</i> pueden tener atributos.</p>
+            <p><b>Grado de relación:</b> Cantidad de entidades involucradas en una relación.</p>
+            <ul>
+                <li><b>Binaria:</b> Relación entre dos entidades.</li>
+                <li><b>Ternaria:</b> Relación entre tres entidades.</li>
+                <li><b>N-aria:</b> Relación entre N entidades.</li>
+            </ul>
+            <b>Nota:</b> Evitar relaciones ternarias o n-arias, ya que son difíciles de implementar en una base de datos relacional. En su lugar, se recomienda descomponerlas en relaciones binarias.
+        </div>
+
+        <!-- Primary key -->
+        <div class="tarjeta">
+            <h2>Primary Key</h2>
+            <p>La clave primaria es un atributo o conjunto de atributos que identifica de manera única a cada instancia de una entidad. Se representa subrayando el atributo en el DER.</p>
+            <ul>
+                <li><b>Ejemplo:</b> ID_Cliente, ID_Producto.</li>
+            </ul>
+            <p>La clave primaria no puede ser nula y debe ser única para cada registro.</p>
+            <p><b>Nota:</b>En realidad, se denominan identificadores unicos.</p>
+            <p><b>Nota:</b> En el caso de entidades débiles, la clave primaria se compone de la clave primaria de la entidad fuerte y un atributo adicional.</p>
+        </div>
+
+        <!-- Cardinalidad -->
+        <div class="tarjeta">
+            <h2>Cardinalidad</h2>
+            <p>La cardinalidad define la cantidad de instancias de una entidad que pueden estar asociadas con instancias de otra entidad en una relación. Se representa mediante notación en el DER.</p>
+            <ul>
+                <li><b>Uno a Uno (1:1):</b> Una instancia de A se relaciona con una instancia de B y viceversa.</li>
+                <li><b>Uno a Muchos (1:N):</b> Una instancia de A se relaciona con muchas instancias de B, pero una instancia de B solo se relaciona con una instancia de A.</li>
+                <li><b>Muchos a Uno (N:1):</b> Muchas instancias de A se relacionan con una instancia de B.</li>
+                <li><b>Muchos a Muchos (M:N):</b> Muchas instancias de A se relacionan con muchas instancias de B.</li>
+            </ul>
+            <p>La cardinalidad se indica mediante números o símbolos cerca de los rombos que representan las relaciones.</p>
+            <p>Se pone un <b>0</b> si puede no haber una entidad de uno de los lados de la relacion.</p>
+            <p><b>Nota:</b> La cardinalidad es importante para entender cómo se relacionan las entidades y para diseñar la base de datos de manera eficiente.</p>
+        </div>
+
+        <!-- Agregacion -->
+        <div class="tarjeta">
+            <h2>Agregación</h2>
+            <p>La agregacion es un concepto que permite representar una relacion entre una entidad y una relacion entre otras entidades. Se utiliza cuando una relación tiene atributos propios o cuando se desea representar una relación compleja.</p>
+            <p>Se representa como una relacion donde uno de los extremos es un cuadrado con lineas entrecortadas que contiene la relacion entre las otras entidades involucradas.</p>
+        </div>
+
+        <!-- Generalizacion y especializacion -->
+        <div class="tarjeta">
+            <h2>Generalización y Especialización</h2>
+            <p>La generalización es el proceso de abstraer características comunes de varias entidades para crear una entidad más general. La especialización es el proceso inverso, donde se crean subentidades a partir de una entidad general.</p>
+            <p>Se representan mediante un triángulo que conecta la entidad general con las entidades especializadas.</p>
+            <p>La generalización y especialización son útiles para modelar jerarquías de entidades y para representar relaciones entre entidades de manera más clara.</p>
+            <p>Se utiliza cuando una entidad tiene subtipos o supertipos.</p>
+            <p>En caso de tratarse de una <i>especializacion <b>rigida</b></i>, de uno u otro, el triangulo lleva una <b style="font-size: large; color: darkred">d</b> en su interior.</p>
+            <p>En caso de tratarse de una <i>especializacion <b>no rigida</b></i>, el triangulo lleva una <b style="font-size: large; color: darkblue">o</b> en su interior. Esto marca que ambas especializaciones pueden darse en una entidad.</p>
+        </div>
+    </div>
+
+</body>
+</html>

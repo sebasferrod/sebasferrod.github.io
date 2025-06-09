@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Apuntes sobre dependencias funcionales en bases de datos.">
+        <meta name="keywords" content="bases de datos, dependencias funcionales, normalización">
+        <meta name="author" content="Sebastian Ferrod">
+        <link rel="stylesheet" href="/estilos/estilos-apuntes.css">
+        <title>Dependencias Funcionales</title>
+        <!-- Scripts -->
+        <script>
+            MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            }
+        };
+        </script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <div class="intro">
+            <h1>Dependencias Funcionales</h1>
+            <p>Es una herramienta formal, para poder evaluar la calidad de un diseño de BD (Base de Datos) <i>(Es decir, el conjunto de sus esquemas relacion).</i>
+            <ul>
+                <li>Se busca saber si un determinado agrupamientode atributos en relaciones es mejor que otro agrupamiento.</li>
+            </ul>
+            </p>
+        </div>
+        <div class="contenedor">
+            <!-- Dependencias funcionales - proposito -->
+            <div class="tarjeta">
+                <h2>Dependencias funcionales</h2>
+                <h3>Motivacion</h3>
+                <p>Contar con una herramienta formal, para poder evaluar la calidad de un diseño de BD (Base de Datos) <i>(es decir, el conjunto de sus esquemas relacion)</i>.</p>
+                <ul><li>Se busca saber si un determinado agrupamiento de atributos en relaciones es mejor que otro agrupamiento.</li></ul>
+                <h3>Metas de un buen diseño:</h3>
+                <ul>
+                    <li>Preservar la informacion que se esta modelando</li>
+                    <li>Minimizar la redundancia de datos</li>
+                </ul>
+            </div>
+
+            <!-- Notacion -->
+            <div class="tarjeta">
+                <h2>Notacion</h2>
+                <ul>
+                    <li><i>R</i> = esquema relacion</li>
+                    <li><i>r</i> = instancia de <i>R</i></li>
+                    <li><i>A, B, C, ...</i> = atributos de <i>R</i></li>
+                    <li><i><span>$t_1, t_2, t_3$</span></i> = tuplas de una instancia <i>r</i></li>
+                    <li><i>X, Y, Z:</i> conjuntos de atributos de <i>R</i></li>
+                    <li><i>f:</i> dependencia funcional</li>
+                    <li><i>F:</i> conjunto de dependencias funcionales</li>
+                </ul>
+            </div>
+
+            <!-- Definicion -->
+            <div class="tarjeta">
+                <h2>Definición</h2>
+                <p>Una dependencia funcional <i>f</i> entre dos conjuntos de atributos <i>X</i> e <i>Y</i> de un esquema relación <i>R</i>, se denota como:</p>
+                <p><span class="math">$X \rightarrow Y$</span> es DF de <i>R</i> <span class="math">$\Longleftrightarrow (\forall r)\;t_1(X) = t_2(X) \Rightarrow t_1(Y) = t_2(Y)$</span></p>
+                <p>y significa que, para toda instancia <i>r</i> de <i>R</i>, si dos tuplas <span class="math">$t_1, t_2 \in r$</span> tienen el mismo valor para los atributos de <i>X</i>, entonces también tendrán el mismo valor para los atributos de <i>Y</i>.</p>
+                <p>En otras palabras, si <i>X</i> determina <i>Y</i>, entonces para cualquier par de tuplas que coincidan en los valores de <i>X</i>, también coincidirán en los valores de <i>Y</i>. Decimos que <i>X</i> determina funcionalmente a <i>Y</i>.</p>
+                <p>Si una instancia de <i>r</i> satisface todas las DF, entonces <i>r</i> en legal.</p>
+                <h3>Observacion:</h3>
+                <ul>
+                    <li>La <i>dependencia funcional</i> es una propiedad de la <b>semantica</b> de los atributos.</li>
+                    <li>Es decir, usamos nuestro <i>conocimiento del dominio</i> para especificar cuales son las DF que se deben cumplir para <b>cualquier instancia de R</b>.</li>
+                </ul>
+            </div>
+
+            <!-- Inferencias de F -->
+            <div class="tarjeta">
+                <h2>Inferencias de F</h2>
+                <p>F ⊨ f ⟺ (∀r)(r satisface F ⇒ r satisface f)</p>
+                <p>Es decir, una dependencia funcional <i>f</i> se infiere de un conjunto de dependencias funcionales <i>F</i> si y solo si, para toda instancia <i>r</i>, si <i>r</i> satisface todas las dependencias en <i>F</i>, entonces también satisface la dependencia <i>f</i>.</p>
+                <p>En otras palabras, si podemos deducir <i>f</i> a partir de <i>F</i>, entonces cualquier instancia que cumpla con las dependencias en <i>F</i> también cumplirá con la dependencia <i>f</i>.</p>
+            </div>
+
+            <!-- Axiomas de Armstrong -->
+            <div class="tarjeta">
+                <h2>Axiomas de Armstrong</h2>
+                <p>Los axiomas de Armstrong son un conjunto de reglas que nos permiten inferir nuevas dependencias funcionales a partir de un conjunto dado. Estos axiomas son:</p>
+                <ol>
+                    <li><b>Reflexividad:</b> Si <i>Y ⊆ X</i>, entonces <span class="math">$X \rightarrow Y$</span>.</li>
+                    <li><b>Aumento:</b> Si <span class="math">$X \rightarrow Y$</span>, entonces <span class="math">$XZ \rightarrow YZ$</span> para cualquier conjunto de atributos <i>Z</i>.</li>
+                    <li><b>Transitivida:</b> Si <span class="math">$X \rightarrow Y$</span> y <span class="math">$Y \rightarrow Z$</span>, entonces <span class="math">$X \rightarrow Z$</span>.</li>
+                </ol>
+                <p>Estos axiomas son fundamentales para el estudio de las dependencias funcionales y nos permiten construir un sistema formal para razonar sobre ellas.</p>
+                <p>De (1) se desprenden las inferencias triviales:</p>
+                <div class="math">
+                    $X \rightarrow X$ (cualquier conjunto de atributos determina a sí mismo) y $X \rightarrow \emptyset$ (cualquier conjunto de atributos determina al conjunto vacío).
+                </div>
+                <p>¿Las dependencias funcionales son simetricas? <i>Respuesta: <b>No</b></i></p>
+                <div class="math">
+                    $¿X \rightarrow Y \Rightarrow Y \rightarrow X?$
+                </div>
+            </div>
+            
+            <!-- Clausura de DF -->
+            <div class="tarjeta">
+                <h2>Clausura de DF</h2>
+                <div class="math">
+                    $F^+ = \{X\rightarrow Y \; | \; F \vDash X \rightarrow Y\}$
+                </div>
+                <p>La clausura de un conjunto de DF <i>F</i> es el conjunto todas las dependencias funcionales inferidas por <i>F</i>.</p>
+                <p>¿Como podemos inferir <b>todas</b> las dependencias funcionales? <br>
+                <i>Alcanza con aplicar todas las combinaciones de la tres reglas de Armstrong!</i></p>
+                <h3>Ejemplo:</h3>
+                <p>estudiante(legajo, nombre) <br>
+                <i>F</i>={legajo $\rightarrow$ nombre}</p>
+                <h4>¿Que conjunto es $F^+$?</h4>
+                <p>$F^+$={legajo $\rightarrow$ nombre, legajo $\rightarrow$ legajo, legajo $\rightarrow$ nombre legajo, nombre $\rightarrow$ nombre, legajo nombre $\rightarrow$ legajo, legajo nombre $\rightarrow$ nombre, legajo nombre $\rightarrow$ legajo nombre}</p>
+            </div>
+
+            <!-- Reglas de inferencia adicionales -->
+            <div class="tarjeta">
+                <h2>Reglas de inferencia adicionales</h2>
+                <p>Además de los axiomas de Armstrong, existen otras reglas de inferencia que pueden ser útiles para deducir nuevas dependencias funcionales:</p>
+                <ol start="4">
+                    <li><b>Union:</b> Si <span class="math">$X \rightarrow Y$</span> y <span class="math">$X \rightarrow Z$</span>, entonces <span class="math">$X \rightarrow YZ$</span>.</li>
+                    <li><b>Pseudotransitividad:</b>$X \rightarrow Y, YZ \rightarrow W \Rightarrow XZ \rightarrow W$</li>
+                    <li><b>Decomposición:</b> Si <span class="math">$XY \rightarrow Z$</span>, entonces <span class="math">$X \rightarrow Z$</span> y <span class="math">$Y \rightarrow Z$</span>.</li>
+                    <li><b>Intersección:</b> Si <span class="math">$XY \rightarrow Z$</span> y <span class="math">$X \rightarrow Y$</span>, entonces <span class="math">$Y \rightarrow Z$</span>.</li>
+                </ol>
+                <p>Estas reglas son útiles para simplificar y manipular dependencias funcionales en un conjunto dado.</p>
+                <p>Estas reglas se demuestran aplicando los axiomas de Armstrong.</p>
+            </div>
+
+            <!-- Clausura de atributos -->
+            <div class="tarjeta">
+                <h2>Clausura de atributos</h2>
+                <p>La clausura de un conjunto de atributos <i>X</i> con respecto a un conjunto de dependencias funcionales <i>F</i>, denotada como <span class="math">$X^+$</span>, es el conjunto de todos los atributos que se pueden determinar a partir de <i>X</i> usando las dependencias en <i>F</i>.</p>
+                <p>Para calcular la clausura, se utilizan los axiomas de Armstrong y se aplican repetidamente hasta que no se puedan inferir más atributos.</p>
+                <p>La clausura es útil para determinar si una dependencia funcional dada es trivial o no, y para verificar si un conjunto de atributos es una clave candidata.</p>
+                <p>Para calcular la clausura de <i>X</i>, seguimos estos pasos:</p>
+                <ol>
+                    <li>Comenzamos con la clausura inicial: <span class="math">$X^+ = X$</span>.</li>
+                    <li>Aplicamos las reglas de Armstrong (reflexividad, aumento y transitividad) hasta que no se puedan añadir más atributos.</li>
+                </ol>
+                <p>El resultado es el conjunto de atributos que se pueden determinar a partir de <i>X</i> utilizando las dependencias en <i>F</i>.</p>
+            </div>
+
+            <!-- Ejemplo de clausura de atributos -->
+            <div class="tarjeta">
+                <h2>Ejemplo de clausura de atributos</h2>
+                <p>Supongamos que tenemos el conjunto de dependencias funcionales <i>$F = \{A \rightarrow B, B \rightarrow C\}$</i>.</p>
+                <p>Para calcular la clausura de <i>A</i> con respecto a <i>F</i>, seguimos estos pasos:</p>
+                <ol>
+                    <li>Comenzamos con la clausura inicial: <span class="math">$A^+ = \{A\}$</span>.</li>
+                    <li>Aplicamos la regla de aumento: como <span class="math">$A \rightarrow B$</span>, añadimos <span class="math">$B$</span>: <span class="math">$A^+ = \{A, B\}$</span>.</li>
+                    <li>Aplicamos la regla de aumento nuevamente: como <span class="math">$B \rightarrow C$</span>, añadimos <span class="math">$C$</span>: <span class="math">$A^+ = \{A, B, C\}$</span>.</li>
+                </ol>
+                <p>Por lo tanto, la clausura de <i>A</i> con respecto a <i>F</i> es <span class="math">$A^+ = \{A, B, C\}$</span>.</p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">
+    <rect width="400" height="200" fill="white"/>
+    <text x="50%" y="20%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="20" fill="black">
+        División (÷)
+    </text>
+    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="16" fill="black">
+        R ÷ S = { t | t ∈ πA(R) ∧ ∀ u ∈ S (tu ∈ R) }
+    </text>
+    <line x1="50" y1="120" x2="350" y2="120" stroke="black" stroke-width="1"/>
+    <text x="50%" y="75%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="14" fill="black">
+        Donde A son los atributos de R que no están en S
+    </text>
+</svg>

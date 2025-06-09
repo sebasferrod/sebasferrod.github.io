@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/estilos/estilos-apuntes.css">
+    <title>Introducción a Bases de Datos</title>
+</head>
+<body>
+    <div class="intro">
+        <h1>Introducción a Bases de Datos</h1>
+        <p>Las bases de datos son un conjunto de datos que se almacenan y organizan de manera que se puedan recuperar y manipular fácilmente. Se utilizan en una amplia variedad de aplicaciones, desde sistemas de gestión empresarial hasta aplicaciones web y móviles.</p>
+        <p>En este documento, exploraremos los conceptos básicos de las bases de datos, incluyendo su definición, tipos, modelos y componentes.</p>
+    </div>
+    <div class="contenedor">
+        <!-- Título: Definición de Base de Datos -->
+        <div class="tarjeta">
+            <h2>Definición de Base de Datos</h2>
+            <p>Una base de datos es un conjunto de datos relacionados que se almacenan en un sistema informático. Estos datos pueden ser accedidos, gestionados y actualizados mediante un software de gestión de bases de datos (DBMS).</p>
+        </div>
+
+        <!-- Título: Tipos de Bases de Datos -->
+        <div class="tarjeta">
+            <h2>Tipos de Bases de Datos</h2>
+            <ul>
+                <li><b>Relacionales:</b> Almacenan datos en tablas relacionadas entre sí.</li>
+                <li><b>NoSQL:</b> Diseñadas para manejar grandes volúmenes de datos no estructurados.</li>
+                <li><b>Distribuidas:</b> Almacenan datos en múltiples ubicaciones físicas.</li>
+                <li><b>En la Nube:</b> Accesibles a través de Internet y gestionadas por proveedores externos.</li>
+            </ul>
+        </div>
+
+        <!-- Título: Modelos de Bases de Datos -->
+        <div class="tarjeta">
+            <h2>Modelos de Bases de Datos</h2>
+            <p>Los modelos de bases de datos definen la estructura y organización de los datos. Algunos modelos comunes incluyen:</p>
+            <ul>
+                <li><b>Modelo Relacional:</b> Utiliza tablas para representar datos y relaciones.</li>
+                <li><b>Modelo Jerárquico:</b> Organiza los datos en una estructura jerárquica.</li>
+                <li><b>Modelo de Red:</b> Permite relaciones más complejas entre los datos.</li>
+                <li><b>Modelo Orientado a Objetos:</b> Combina conceptos de programación orientada a objetos con bases de datos.</li>
+            </ul>
+        </div>
+
+        <!-- Título: Componentes de una Base de Datos -->
+        <div class="tarjeta">
+            <h2>Componentes de una Base de Datos</h2>
+            <p>Una base de datos consta de varios componentes clave, incluyendo:</p>
+            <ul>
+                <li><b>Datos:</b> La información almacenada en la base de datos.</li>
+                <li><b>Estructura:</b> La forma en que se organizan y relacionan los datos.</li>
+                <li><b>Sistema de Gestión:</b> El software que permite gestionar y manipular la base de datos.</li>
+                <li><b>Usuarios:</b> Las personas o aplicaciones que interactúan con la base de datos.</li>
+                <li><b>Consultas:</b> Instrucciones para recuperar o manipular datos.</li>
+                <li><b>Transacciones:</b> Unidades de trabajo que se realizan en la base de datos.</li>
+                <li><b>Seguridad:</b> Mecanismos para proteger los datos y controlar el acceso.</li>
+            </ul>
+        </div>
+
+        <!-- Conceptos clave -->
+        <div class="tarjeta">
+            <h2>Conceptos Clave</h2>
+            <p>Algunos conceptos clave en bases de datos incluyen:</p>
+            <ul>
+                <li><b>Abstraccion de datos:</b> Datos puntuales que son relevantes.</li>
+                <li><b>DBMS (Data Base Managenet System):</b> Gestor de la base de datos.
+                    <br><i>Tiene:</i>
+                    <ul>
+                        <li><i>Seguridad.</i></li>
+                        <li><i>Manera de incorporar relaciones.</i></li>
+                    </ul>
+                </li>
+                <li><b>RDBMS (Relational DBMS):</b>
+                    <br><i>Ejemplos:</i>
+                    <ul>
+                        <li><i>MySQL.</i></li>
+                        <li><i>PostgreSQL.</i></li>
+                        <li><i>Oracle.</i></li>
+                    </ul>
+                </li>
+                <li><b>DBA (Data Base Administrator):</b> Rol de trabajo.</li>
+            </ul>
+        </div>
+
+        <!-- PostgreSQL-->
+        <div class="tarjeta">
+            <h2>PostgreSQL</h2>
+            <p>PostgreSQL es un sistema de gestión de bases de datos relacional y objeto-relacional. Es conocido por su robustez, extensibilidad y cumplimiento de estándares SQL.</p>
+            <p>Algunas características destacadas de PostgreSQL incluyen:</p>
+            <ul>
+                <li>Unix</li>
+                <li>Clients: psql, pgweb.</li>
+                <li>Editor texto, vscode.</li>
+                <li>Codigo: Go, C, Python, Java, PHP</li>
+            </ul>
+        </div>
+
+        <!-- Modelos de datos -->
+         <div class="tarjeta">
+            <h2>Modelos de datos</h2>
+            <p>Los modelos de datos son representaciones abstractas de la estructura y organización de los datos en una base de datos. Existen varios tipos de modelos de datos, cada uno con sus propias características y enfoques.</p>
+
+        <svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Estilos -->
+            <style>
+              text { font-family: Arial, sans-serif; }
+              .title { font-size: 20px; font-weight: bold; }
+              .list-item { font-size: 16px; }
+              .arrow-text { font-size: 12px; }
+            </style>
+            <!-- Fondo blanco -->
+            <rect width="300" height="200" fill="#fff" stroke="#000" stroke-width="2"/>
+
+            <!-- Título -->
+            <text x="150" y="40" class="title" text-anchor="middle">Modelos de datos</text>
+          
+            <!-- Lista -->
+            <g transform="translate(40 80)">
+              <text class="list-item">
+                <tspan x="0" y="0">1) Conceptuales</tspan>
+                <tspan x="0" y="30">2) Lógicos</tspan>
+                <tspan x="0" y="60">3) Físicos</tspan>
+              </text>
+            </g>
+          
+            <!-- Flecha doble vertical -->
+            <g transform="translate(190 70)">
+              <!-- Línea central -->
+              <line x1="0" y1="0" x2="0" y2="70" stroke="#000" stroke-width="2"/>
+              
+              <!-- Flecha superior -->
+              <path d="M-5,0 L0,-8 L5,0" fill="#000"/>
+              
+              <!-- Flecha inferior -->
+              <path d="M-5,70 L0,80 L5,70" fill="#000"/>
+            </g>
+          
+            <!-- Etiquetas de la flecha -->
+            <text x="205" y="70" class="arrow-text">Abstracto</text>
+            <text x="205" y="150" class="arrow-text">Concreto</text>
+        </svg>
+    </div>
+</body>

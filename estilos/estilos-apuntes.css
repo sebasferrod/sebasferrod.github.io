@@ -15,7 +15,7 @@ body {
 }
 .tarjeta {
     background-color: #ffca89;
-    width: 450px;
+    width: 469px;
     padding: 20px;
     border-radius: 10px;
     margin: 5px;
@@ -35,6 +35,21 @@ body {
         list-style: none;
         padding: 0px;
     }
+}
+
+.concepto {
+    display: inline-block;
+    color: darkred; 
+    font-weight:bold;
+    font-style: italic;
+}
+
+.codigo {
+    background-color: #360e003d;
+    padding: 3px;
+    border-radius: 5px;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 0.91em;
 }
 
 #presentacion {
