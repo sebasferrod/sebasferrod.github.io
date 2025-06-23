@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilo-cv.css">
+  <title>Creador de Curriculum Vitae</title>
+</head>
+<body class="fill-black">
+    <h1>Bienvenido al Creador de Curriculum Vitae</h1>
+    <p>Utiliza el siguiente formulario para crear tu CV:</p>
+    <div class="lienzo">
+        
+        <form id="cvForm">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        
+            <label for="puesto">Puesto al que postula:</label>
+            <input type="text" id="puesto" name="puesto" required>
+        
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono">
+        
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo">
+        
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion">
+        
+            <label for="objetivo">Objetivo Laboral:</label>
+            <textarea id="objetivo" name="objetivo"></textarea>
+            <br>
+        
+            <button type="button" onclick="cargarFoto()">Cargar foto</button>
+            <button type="button" onclick="agregarExperiencia()">Agregar Experiencia</button>
+            <button type="button" onclick="agregarEducacion()">Agregar Educación</button>
+            <button type="button" onclick="generarCV()">Generar CV</button>
+        </form>
+
+        <div id="contenedor-formulario"></div>
+        <div id="contenedor-experiencias"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

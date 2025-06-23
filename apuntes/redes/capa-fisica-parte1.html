@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/estilos/estilos-apuntes.css">
     <title>Document</title>
+    <script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <div class="intro">
@@ -95,6 +106,161 @@
                 <li><strong>Half-duplex:</strong> La comunicación es bidireccional, pero no simultánea; los datos pueden fluir en ambas direcciones, pero no al mismo tiempo.</li>
                 <li><strong>Full-duplex:</strong> La comunicación es bidireccional y simultánea; los datos pueden fluir en ambas direcciones al mismo tiempo.</li>
             </ul>
+        </div>
+
+        <!-- Señales que se pueden transmitir -->
+        <div class="tarjeta">
+            <h2>Señales que se pueden transmitir</h2>
+            <p><strong>Señales analogicas</strong><br>Son señales generadas por algun tipo de fenomeno electromagnetico y son representables por una funcion en forma de onda.</p>
+            <p>El numero de oscilaciones por segundo de una onda es su frecuencia y se mide en Hz (Hertz).</p>
+            <p>1 Hz = 1 ciclo por segundo</p>
+            <p>Las ondas electromagneticas disponibles en la naturaleza estan resumidas en el espectro electromagnetico:<br>
+            <!--
+            <ul>
+                <li><strong>Ondas de radio:</strong> Utilizadas para la transmisión de señales de radio y televisión.</li>
+                <li><strong>Microondas:</strong> Utilizadas en comunicaciones satelitales y redes inalámbricas.</li>
+                <li><strong>Infrarrojos:</strong> Utilizados en controles remotos y comunicaciones a corta distancia.</li>
+                <li><strong>Luz visible:</strong> Utilizada en tecnologías ópticas como la fibra óptica.</li>
+                <li><strong>Rayos X:</strong> Utilizados en aplicaciones médicas y de seguridad.</li>
+            </ul>
+            -->
+            <table>
+                <tr><td>10 KHz a 100 MHz</td><td>Ondas de radio</td><td>Utilizadas para la transmisión de señales de radio y televisión.</td></tr>
+                <tr><td>100 MHz a 100 GHz</td><td>Microondas</td><td>Utilizadas en comunicaciones satelitales y redes inalámbricas.</td></tr>
+                <tr><td>100 GHz a 100 THz</td><td>Infrarrojos</td><td>Utilizados en controles remotos y comunicaciones a corta distancia.</td></tr>
+                <tr><td>100 THz a 10 PHz</td><td>Luz visible</td><td>Utilizada en tecnologías ópticas como la fibra óptica.</td></tr>
+                <tr><td>10 PHz a 10 Ehz</td><td>Rayos X</td><td>Utilizados en aplicaciones médicas y de seguridad.</td></tr>
+            </table>
+            </p>
+        </div>
+
+        <!-- Mas señales que se pueden transmitir -->
+        <div class="tarjeta">
+            <h2>Más señales que se pueden transmitir</h2>
+            <p><strong>Señales digitales</strong><br>Son señales discretas que representan datos en forma de bits (0s y 1s). Estas señales son menos susceptibles a interferencias y se utilizan en la mayoría de las comunicaciones modernas.</p>
+            <p>Hasta ahora sabemos que las señales analogicas viajan por un medio de transmision en fomra de ondas electromagneticas.</p>
+            <p>Queremos transmitir informacion binaria (1s y 0s). Estos datos binarios van a ser codificados (o representados) con una señal analogica. De esta manera obtendremos una señal digital.</p>
+            <p>Modificando la amplitud, frecuencia o fase de una onda portadora y agregando armonicos (componentes de la señal) podemos obtener y transmitir un par de señales totalmente distinguibles llamadas señal "alta" y señal "baja", asi se pueden transmitir datos digitales a través de medios físicos.</p>
+            <ul>
+                <li>Una <b>señal alta</b> representa un <i>uno</i>.</li>
+                <li>Una <b>señal baja</b> representa un <i>cero</i>.</li>
+            </ul>
+            <p>Las señales digitales se transmiten a través de medios físicos como cables de cobre, fibra óptica o de forma inalámbrica.</p>
+        </div>
+
+        <!-- Codificacion/Decodificacion-->
+        <div class="tarjeta">
+            <h2>Codificación/decodificación</h2>
+            <p><strong>Placa de red (Adaptador)</strong>:<br> Pieza de hardware que conecta un nodo de la red con el medio.</p>
+            <!-- Imagen ilustrativa de dos nodos conectados a traves de adaptadores al medio -->
+            <p>Su tarea en el nodo que envia datos es codificar bits en señales eléctricas o ópticas para su transmisión a través del medio físico.</p>
+            <p>Su tarea en el nodo que recibe los datos es decodificar las señales recibidas en bits.</p>
+        </div>
+
+        <!-- Codificacion de señales -->
+        <div class="tarjeta">
+            <h2>Codificación de señales</h2>
+            <p>La codificación de señales es el proceso de convertir datos digitales en señales eléctricas o ópticas para su transmisión. Existen diferentes métodos de codificación, como:</p>
+            <ul>
+                <li><strong>Manchester:</strong> Combina la señal de reloj con los datos, lo que facilita la sincronización.</li>
+                <li><strong>NRZ (Non-Return to Zero):</strong> Representa los bits como niveles de voltaje constantes.</li>
+                <li><strong>4B/5B:</strong> Utiliza bloques de 4 bits para representar 5 bits, mejorando la sincronización y reduciendo errores.</li>
+            </ul>
+        </div>
+
+        <!-- Codificacion NRZ -->
+        <div class="tarjeta">
+            <h2>Codificacion NRZ</h2>
+            <p>Asumimos que estamos trabajando con dos señales: alta y baja. Y que estas señales pueden corresponder a niveles de voltaje.</p>
+            <p>La codificacion mas sencilla es representar el bit 1 con la señal alta (voltaje positivo) y el bit 0 con la señal baja (voltaje negativo)</p>
+            <p>Esta codificacion se llama <i>Non-Return to Zero (NRZ)</i></p>
+            <p><u><strong>Problema:</strong></u><br>Si tengo muchos ceros consecutivos (o unos), se pierde precision sobre cuantos ceros hay realmente, por ejemplo, 15 ceros se ven muy parecidos a 16 ceros si no se cuenta con un reloj preciso.</p>
+        </div>
+
+        <!-- Codificacion Manchester -->
+        <div class="tarjeta">
+            <h2>Codificación Manchester</h2>
+            <p>La codificación Manchester es una técnica que combina la señal de reloj con los datos, lo que facilita la sincronización entre el transmisor y el receptor. Cada bit se transmite en un ciclo de clock.</p>
+            <p>En esta codificación, cada bit se representa mediante una transición en la señal:</p>
+            <ul>
+                <li>Un 0 se representa con una transición de baja a alta en el medio del bit.</li>
+                <li>Un 1 se representa con una transición de alta a baja en el medio del bit.</li>
+            </ul>
+            <p>De esta manera cada transicion representa un bit y no hay problemas cuando hay muchos ceros seguidos.</p>
+        </div>
+
+        <!-- Ancho de Banda -->
+        <div class="tarjeta">
+            <h2>Ancho de Banda</h2>
+            <p><span class="concepto">Ancho de banda analogico</span> <i>vs</i> <span class="concepto">Ancho de banda digital</span></p>
+            <h3>Ancho de banda analógico</h3>
+            <p>El ancho de banda analógico se refiere a la capacidad de un medio físico para transmitir señales analógicas. Se mide en Hertz (Hz) y representa la diferencia entre la frecuencia más baja y la más alta que puede transmitir el medio, sin una atenuacion considerable.</p>
+            <!-- Imagen ilustrativa del espectro electromagnetico -->
+            <h3>Ancho de banda digital</h3>
+            <p>El ancho de banda digital se refiere a la cantidad de datos que se pueden transmitir a través de un medio digital en un período de tiempo determinado (tasa de datos maxima de un canal). Se mide en bits por segundo (bps) y está relacionado con la capacidad del medio para transmitir señales digitales.</p>
+            <!-- Imagen ilustrativa del ancho de banda representado como un cilindro donde el diametro es el ancho de banda y el largo, el tiempo de transmision. -->
+        </div>
+
+        <!-- Ruido en el canal -->
+        <div class="tarjeta">
+            <h2>Ruido en el canal</h2>
+            <p>El ruido es cualquier interferencia que afecta la calidad de la señal transmitida a través de un medio físico. Puede ser causado por diversas fuentes, como interferencias electromagnéticas, crosstalk entre cables o fluctuaciones en la señal.</p>
+            <p>El ruido puede afectar la capacidad de un canal para transmitir datos de manera confiable, por lo que es importante diseñar sistemas de comunicación que minimicen su impacto.</p>
+            <p>Una de las fuentes de ruido es el <i>ruido termico</i> (agitacion de electrones dentro del conductor). Este factor afecta el ancho de banda digital, en otras palabras, el ruido <i>reduce</i> el numero maximo de bits/segundo.</p>
+        </div>
+
+        <!-- Generado por IA
+        <!-- Relacion entre ancho de banda y ruido ->
+        <div class="tarjeta">
+            <h2>Relación entre ancho de banda y ruido</h2>
+            <p>La relación entre el ancho de banda y el ruido es fundamental para entender la capacidad de un canal de comunicación. A medida que aumenta el ancho de banda, también aumenta la cantidad de ruido que puede afectar la señal.</p>
+            <p>El teorema de Nyquist establece que la tasa máxima de transmisión de datos en un canal es proporcional al ancho de banda del canal y al logaritmo de la relación señal-ruido (SNR):</p>
+            <p>\[ C = 2B \log_2(1 + \text{SNR}) \]</p>
+            <p>donde \( C \) es la capacidad del canal en bits por segundo, \( B \) es el ancho de banda en Hertz y \( \text{SNR} \) es la relación señal-ruido.</p>
+        -->
+        <!-- Informacion que se trasmite -->
+        <div class="tarjeta">
+            <h2 >Información que se transmite</h2>
+            <p>Los mensajes que se evian a traves de un canal de comunicacion contienen informacion que se puede medir.</p>
+            <p>Entropia = cantidad de informacion contenida en un mendaje</p>
+            <p>Unidad de informacion = 1 bit.</p>
+        </div>
+
+        <!-- Entropia, ejemplo -->
+        <div class="tarjeta">
+            <h2>Entropía, como se calcula</h2>
+            <p>La entropía es una medida de la incertidumbre o la cantidad de información contenida en un mensaje. Se puede calcular utilizando la fórmula:</p>
+            <p>\[ H(X) = -\sum_{i=1}^{n} p(x_i) \log_2(p(x_i)) \]</p>
+            <p>donde \( H(X) \) es la entropía del mensaje, \( p(x_i) \) es la probabilidad de ocurrencia del símbolo \( x_i \) y \( n \) es el número total de símbolos.</p>
+            <p>La probabilidad de ocurrencia del simbolo se obtiene contabilizando la cantidad de apariciones del mismo, dividido por la cantidad de simbolos en el mensaje.</p>
+            <p>Por ejemplo, si tenemos un mensaje que contiene los símbolos A, B y C con probabilidades 0.5, 0.3 y 0.2 respectivamente, la entropía se calcularía como:</p>
+            <p>\[ H(X) = -[0.5 \log_2(0.5) + 0.3 \log_2(0.3) + 0.2 \log_2(0.2)] \]</p>
+            <p>El logaritmo da la cantidad de bits por simbolo. La entropia tambien dice cual es el minimo numero de bits por simbolo necesarios en promedio para codificar el mensaje.</p>
+        </div>
+
+        <!-- Entropia, ejemplo de calculo -->
+        <div class="tarjeta">
+            <h2>Entropia, ejemplo de calculo</h2>
+            <!-- Se intento poner la formula a la derecha del texto pero no sucede -->
+            <div style="width:fit-content">
+                <p>Tengamos el siguiente mensaje X:</p>
+                <div class="formula">
+                    X = "abracadabra"
+                </div>
+                <p>La entropia es:</p>
+            </div>
+            <div style="display: inline;">\[ H(X) = -\sum_{i=1}^{n} p(x_i) \log_2(p(x_i)) \]</div>
+            <table>
+                <tr><td><b>xi</b></td><td><b>p(xi)</b></td><td><b>log2(p(xi))</b></td><td><b>p(xi)*log2(p(xi))</b></td></tr>
+                <tr><td>a</td><td>5/11 = 0.455</td><td>log2 0.455</td><td>-0.5169</td></tr>
+                <tr><td>b</td><td>2/11 = 0.182</td><td>log2 0.182</td><td>-0.4473</td></tr>
+                <tr><td>r</td><td>2/11 = 0.182</td><td>log2 0.182</td><td>-0.4473</td></tr>
+                <tr><td>d</td><td>1/11 = 0.091</td><td>log2 0.091</td><td>-0.3146</td></tr>
+                <tr><td>c</td><td>1/11 = 0.091</td><td>log2 0.091</td><td>-0.3146</td></tr>
+            </table>
+            <div style="text-align: right; padding: 10px; margin: 5px;">
+                H(X) = -(<b>-2.04037</b>)
+            </div>
         </div>
     </div>
 </body>

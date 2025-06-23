@@ -46,10 +46,24 @@ body {
 
 .codigo {
     background-color: #360e003d;
-    padding: 3px;
+    padding: 3px;   
     border-radius: 5px;
     font-family:'Courier New', Courier, monospace;
     font-size: 0.91em;
+}
+
+.formula {
+    background-color: #fde194;
+    width:max-content;
+    padding: 15px;
+    margin: 0px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: #212121;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95em;
+    color: #2c2c2c;
 }
 
 #presentacion {
@@ -58,6 +72,27 @@ body {
     padding:15px;
     margin-bottom: 5px;
     text-align: center;
+}
+
+table {
+    background-color: #fde194;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #212121;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f6f6f6;
 }
 
 @media screen and (max-width: 1032px) {

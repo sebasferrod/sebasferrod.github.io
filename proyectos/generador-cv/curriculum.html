@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum</title>
+    <link rel="stylesheet" href="estilo-cv.css">
+</head>
+<body>
+    <div class="lienzo fill-gray">
+
+        <!-- Barra lateral izquierdo
+            - Objetivo laboral: objetivoLaboral
+            - Telefono: telefono
+            - correo: correo
+            - direccion: direccion
+            - educacion: educacion
+        -->
+        <div class="sidebar div-extendido">
+            <div class="foto">
+                <img alt="Foto del Postulante" id="fotoPostulante">
+            </div>
+            <h2>Objetivo Laboral</h2>
+            <p id="objetivoLaboral">Descripción del objetivo laboral del postulante.</p>
+            <h2>Contacto</h2>
+            <p id="telefono">Teléfono: 123-456-7890</p>
+            <p id="correo">Correo: correo@gmail.com</p>
+            <p id="direccion">Dirección: Calle Falsa 123, Ciudad</p>
+            <h2>Educación</h2>
+            <p id="formacion">Título universitario en Ingeniería de Sistemas, Universidad XYZ, 2020</p>
+        </div>
+
+        <!-- Contenido principal:
+            - Nombre postulante: nombrePostulante
+            - Puesto aspirado: puestoAspirado
+            - Experiencia laboral: experienciaLaboral
+        -->
+        <div class="contenido">
+            <div id="presentacion">
+                <div id="nombrePostulante">
+                    Nombre del Postulante
+                </div>
+                <div id="puestoAspirado">
+                    Puesto al que postula
+                </div>
+            </div>
+            <div id="experienciaLaboral" class="div-extendido">
+                <div class="experiencia" id="exp1">
+                    <h3>Experiencia Laboral 1</h3>
+                    <p>Fechas:</p>
+                    <p>Descripción de la experiencia laboral 1.</p>
+                    <div class="tareas">
+                        <h4>Tareas:</h4>
+                        <ul>
+                            <li>Tarea 1 de la experiencia laboral 1</li>
+                            <li>Tarea 2 de la experiencia laboral 1</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experiencia" id="exp2">
+                    <h3>Experiencia Laboral 2</h3>
+                    <p>Fechas:</p>
+                    <p>Descripción de la experiencia laboral 2.</p>
+                    <div class="tareas">
+                        <h4>Tareas:</h4>
+                        <ul>
+                            <li>Tarea 1 de la experiencia laboral 2</li>
+                            <li>Tarea 2 de la experiencia laboral 2</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="cv-web.js"></script>
+</body>
+</html>

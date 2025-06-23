@@ -1,0 +1,239 @@
+body {
+  margin:0;
+  padding:0;
+  color: black;
+  background-color: white;
+}
+.lienzo {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0;
+  /*padding: 20px;*/
+  display:flex;
+}
+
+.fill-gray{
+  background-color: #ababab
+}
+.fill-black{
+  background-color: black;
+  color: white;
+}
+
+.div-extendido{
+  min-height: 75vh;
+}
+
+.titulo{
+  font-size: 1em;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#cvForm{
+  float: left;
+  width: 350px;
+  margin: 0 auto;
+  padding: 20px;
+  color: white;
+  background-color: #717171;
+  display: flex;
+  flex-direction: column;
+  input{
+    width: 300px;
+  }
+  textarea {
+    width: 300px;
+    height: 100px;
+  } 
+}
+
+.formulario {
+  margin: 5px auto;
+  border: 1px solid #ff0101;
+  width: 350px;
+  padding: 20px;
+  background-color: #7a7a52;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.experiencia{
+  margin: 5px;
+  /*border: 1px solid #ff0101;*/
+  color: black;
+  /*background-color: #ffaa00;*/
+  padding: 10px;
+  min-width: 0;
+  min-height: 0;
+}
+#contenedor-experiencias{
+  margin: 10px;
+  width: 70%;
+  float: right;
+  background-color: darkblue;
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  gap: 10px; /*Espacio uniforme entre elementos dentro del contenedor.*/
+  /*flex-direction: column;*/
+  .experiencia {
+    /* flex: 1; ESTABLECE EL COMPORTAMIENTO DEL DIV ACTUAL, SE EXPANDE HASTA OCUIPAR EL ANCHO, SI USAS width NO ES NECESARIO FLEX (PROPIEDAD). OTRAS CONFIGIURACIONES DE FLEX: FLEX: NONE; FLEX: 0 0 AUTO;*/
+    min-height: 0;
+    height:fit-content;
+    max-width: 265px;
+    min-width: 100px;
+    /*overflow: auto;*/
+    /*display: inline-block; NO HACE FALTA EN CONTENEDORES "display: flex" */
+    border: 1px solid #ff0101;
+    background-color: #28b302;
+    color: black;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    p{
+      overflow-wrap: break-word;
+    }
+  }
+  .educacion {
+    margin: 5px;
+    color: black;
+    padding: 10px;
+    max-width: 265px;
+    min-width: 100px;
+    min-height: 0;
+    flex: 1;
+    min-height: 0;
+    height:fit-content;
+    overflow: auto;
+    display: inline-block;
+    border: 1px solid #ff0101;
+    background-color: #0097b5;
+    color: black;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    p{
+      overflow-wrap: break-word;
+    }
+  }
+}
+#contenedor-formulario {
+  float: right;
+  width: 70%;
+  justify-content: center;
+  align-items: center;
+}
+
+#preview {
+  margin: 20px auto;
+  max-width: 300px;
+  max-height: 300px;
+  border: 2px dashed #ccc;
+  display: none;
+}
+
+#nombrePostulante {
+  padding: 20px 0px;
+  font-size: 3em;
+  font-weight: bold;
+  color: #000000;
+}
+#puestoAspirado {
+  font-size: 1.2em;
+  padding-top: 25px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.sidebar {
+  width: 40%;
+  float: left;
+  padding: 20px;
+  background-color: #ababab;
+  h2 {
+    font-size: 1.5em;
+    color: #0064de;
+  }
+  p {
+    margin: 0px;
+    margin-left: 10px;
+  }
+}
+
+.foto {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /*padding: 20px;*/
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  background-color: #333;
+  align-content: center;
+  #fotoPostulante {
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+    border-radius: 100%;
+    display: block;
+  }
+}
+
+
+.contenido {
+  width: 60%;
+  float: right;
+  padding: 0px;
+  /*background-color: #e0e0e0;
+  /*border-color: black;
+  border-style: solid;
+  border-width: 1px;*/
+}
+
+#presentacion {
+  margin: 0px;
+  padding: 25px;
+  background-color: rgb(108, 108, 108);
+  text-align: center;
+}
+
+#experienciaLaboral {
+  /*padding: 0px;*/
+  padding: 20px;
+  background-color: white;
+  margin-top: 20px;
+  h2 {
+    font-size: 1.5em;
+    text-decoration: underline;
+    padding: 5px;
+    text-align: center;
+  }
+  .experiencia{
+    margin: 5px;
+    /*border: 1px solid #ff0101;*/
+    color: black;
+    /*background-color: #ffaa00;*/
+    padding: 10px;
+    width: auto;
+    padding: 15px 20px;
+    .titulo{
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+  }
+}
+
+@media print {
+  body {
+    -webkit-print-color-adjust: exact !important; /* Chrome/Safari */
+    /*color-adjust: exact !important;               /* Estándar */
+    print-color-adjust: exact !important;         /* Firefox */
+  }
+  
+  /* Forzar fondos en elementos clave */
+
+}
