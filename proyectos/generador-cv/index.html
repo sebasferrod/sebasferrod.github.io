@@ -24,11 +24,23 @@
             <label for="correo">Correo electrónico:</label>
             <input type="email" id="correo" name="correo">
         
-            <label for="direccion">Dirección:</label>
-            <input type="text" id="direccion" name="direccion">
+            <label for="direccion">
+                <input type="checkbox" id="chk_direccion" name="chk_direccion" onclick="toggleDireccion()">
+                Dirección:
+            </label>
+            <div id="direccionDiv" style="display: none;">
+                <input type="text" id="direccion" name="direccion">
+            </div>
         
             <label for="objetivo">Objetivo Laboral:</label>
             <textarea id="objetivo" name="objetivo"></textarea>
+            <h3>Disponibilidad</h3>
+            <label>
+                <input type="checkbox" id="full-time" name="full-time" checked>Full-time
+            </label>
+            <label for="part-time" name="part-time">
+                <input type="checkbox" id="part-time" name="part-time">Part-time
+            </label>
             <br>
         
             <button type="button" onclick="cargarFoto()">Cargar foto</button>

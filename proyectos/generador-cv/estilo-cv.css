@@ -40,9 +40,9 @@ body {
   background-color: #717171;
   display: flex;
   flex-direction: column;
-  input{
+  /*input{
     width: 300px;
-  }
+  }*/
   textarea {
     width: 300px;
     height: 100px;
@@ -83,8 +83,8 @@ body {
     /* flex: 1; ESTABLECE EL COMPORTAMIENTO DEL DIV ACTUAL, SE EXPANDE HASTA OCUIPAR EL ANCHO, SI USAS width NO ES NECESARIO FLEX (PROPIEDAD). OTRAS CONFIGIURACIONES DE FLEX: FLEX: NONE; FLEX: 0 0 AUTO;*/
     min-height: 0;
     height:fit-content;
-    max-width: 265px;
-    min-width: 100px;
+    max-width: 700px;
+    min-width: 200px;
     /*overflow: auto;*/
     /*display: inline-block; NO HACE FALTA EN CONTENEDORES "display: flex" */
     border: 1px solid #ff0101;
@@ -100,8 +100,8 @@ body {
     margin: 5px;
     color: black;
     padding: 10px;
-    max-width: 265px;
-    min-width: 100px;
+    max-width: 700px;
+    min-width: 200px;
     min-height: 0;
     flex: 1;
     min-height: 0;

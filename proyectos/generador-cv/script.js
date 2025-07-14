@@ -1,6 +1,8 @@
 let experiencias = [];
 let arrayEducacion = [];
 let fotoACargar;
+let disponibilidad = 0; // 10 - Full time, 01 - Part time, 11 - Ambos - 00 - Sin disponibilidad
+let bool_direccion = false; // Variable para controlar si se muestra el campo de dirección
 
 // Renderiza en codigo HTML las experiencias laborales y estudios cargados por el usuario.
 function renderExperiencias() {
@@ -180,17 +182,40 @@ function generarCV(){
     let puesto = document.getElementById("puesto").value;
     let telefono = document.getElementById("telefono").value;
     let correo = document.getElementById("correo").value;
-    let direccion = document.getElementById("direccion").value;
+    let direccion;
     let objetivo = document.getElementById("objetivo").value;
+    document.getElementById("full-time").checked ? disponibilidad += 2 : disponibilidad += 0;
+    document.getElementById("part-time").checked ? disponibilidad += 1 : disponibilidad += 0;
     localStorage.setItem("nombre", nombre);
     localStorage.setItem("puesto", puesto);
     localStorage.setItem("telefono", telefono);
     localStorage.setItem("correo", correo);
-    localStorage.setItem("direccion", direccion);
+    localStorage.setItem("bool_direccion", bool_direccion);
+    if (bool_direccion) {
+        direccion = document.getElementById("direccion").value;
+        localStorage.setItem("direccion", direccion);
+    }
     localStorage.setItem("objetivo", objetivo);
     localStorage.setItem("experiencias", JSON.stringify(experiencias));
     localStorage.setItem("educacion", JSON.stringify(arrayEducacion));
+    localStorage.setItem("disponibilidad", disponibilidad);
     console.log("Datos guardados en localStorage:", nombre, puesto, telefono, correo, direccion, objetivo, experiencias, arrayEducacion);
     // Redirigir a la página del currículum
     window.location.href = "curriculum.html";
+}
+
+// Muestra u oculta el campo de dirección según el estado del checkbox.
+function toggleDireccion() {
+    const direccionDiv = document.getElementById("direccionDiv");
+    const chkDireccion = document.getElementById("chk_direccion");
+    if (chkDireccion.checked) {
+        console.log("Checkbox de dirección marcado, mostrando campo de dirección.");
+        direccionDiv.style.display = "block";
+        bool_direccion = true; // Actualizar la variable de control
+    } else {
+        direccionDiv.style.display = "none";
+        bool_direccion = false; // Actualizar la variable de control
+        document.getElementById("direccion").value = ""; // Limpiar el campo de dirección
+    }
+    console.log("Estado del checkbox de dirección:", bool_direccion);
 }
