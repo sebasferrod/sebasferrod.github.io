@@ -131,6 +131,58 @@
                 <p>Estas reglas se demuestran aplicando los axiomas de Armstrong.</p>
             </div>
 
+            <!-- Demostracion de la Union -->
+            <div class="tarjeta">
+                <h2>Demostración de la Unión</h2>
+                <p>Para demostrar la regla de unión, consideremos dos dependencias funcionales:</p>
+                <div class="math">
+                    $X \rightarrow Y$ y $X \rightarrow Z$
+                </div>
+                <p>Queremos demostrar que:</p>
+                <div class="math">
+                    $X \rightarrow YZ$
+                </div>
+                <h3>Demostración:</h3>
+                <ol>
+                    <li><span class="math">$X \rightarrow Y$</span><span class="aclaracion">(hipotesis)</span></li>
+                    <li><span class="math">$X \rightarrow Z$</span><span class="aclaracion">(hipotesis)</span></li>
+                    <li><span class="math">$X \rightarrow YX$</span><span class="aclaracion">(aumento de (1) con X)</span></li>
+                    <li><span class="math">$XY \rightarrow ZY$</span><span class="aclaracion">(aumento de (2) con Y)</span></li>
+                    <li><span class="math">$X \rightarrow ZY$</span><span class="aclaracion">(transitividad de (3) y (4))</span></li>
+                </ol>
+            </div>
+            
+            <!-- Reglas que no son reglas (Falacias) -->
+            <div class="tarjeta">
+                <h2>Reglas que no son reglas (Falacias)</h2>
+                <p>Existen algunas afirmaciones que parecen ser reglas de inferencia, pero en realidad no lo son. Estas son falacias y no deben ser utilizadas para deducir nuevas dependencias funcionales.</p>
+                <div class="formula">$¿X \rightarrow Z, Y \rightarrow Z \Rightarrow X \rightarrow Y?$</div>
+                <p>La falsedad de la regla se demuestra con dando un contraejemplo.</p>
+                <div class="ejemplo">
+                    <h3>Esquema:</h3>
+                    cliente(nro_cliente, telefono, nombre)
+                    <br>
+                    <h3>Dependencias funcionales:</h3>
+                    nro_cliente $\rightarrow$ nombre <br>
+                    telefono $\rightarrow$ nombre <br>
+                    <h3>Instancia:</h3>
+                    <table>
+                        <tr><th>nro_cliente</th><th>telefono</th><th>nombre</th></tr>
+                        <tr><td>1</td><td>123456789</td><td>Ana</td></tr>
+                        <tr><td>2</td><td>987654321</td><td>Juan</td></tr>
+                        <tr><td>2</td><td>123456789</td><td>Juan</td></tr>
+                    </table>
+                    <p>Alcanza con un contraejemplo sin semantica reconocible.</p>
+                    <table id="contraejemplo_01">
+                        <tr><th>A</th><th>B</th><th>C</th></tr>
+                        <tr><td>1</td><td>3</td><td>5</td></tr>
+                        <tr><td>1</td><td>4</td><td>5</td></tr>
+                        <tr><td>2</td><td>3</td><td>5</td></tr>
+                        <tr><td>2</td><td>4</td><td>5</td></tr>
+                    </table>
+                </div>
+            </div>
+
             <!-- Clausura de atributos -->
             <div class="tarjeta">
                 <h2>Clausura de atributos</h2>
@@ -143,6 +195,12 @@
                     <li>Aplicamos las reglas de Armstrong (reflexividad, aumento y transitividad) hasta que no se puedan añadir más atributos.</li>
                 </ol>
                 <p>El resultado es el conjunto de atributos que se pueden determinar a partir de <i>X</i> utilizando las dependencias en <i>F</i>.</p>
+                <div class="formula">
+                    $X^+=\{A \in R \hspace{3pt} |\hspace{3pt} F \vDash X \rightarrow A\}$
+                </div>
+                <p>La clausura de un conjunto de atributos X respecto de un conjunto de dependencias F es el conjunto todos los atributos A tal que X → A es inferido por F.</p>
+                <h3>Propiedad:</h3>
+                <div class="formula">$F\vDash X \rightarrow Y \Longleftrightarrow Y \subseteq X^+$</div>
             </div>
 
             <!-- Ejemplo de clausura de atributos -->
@@ -158,7 +216,111 @@
                 <p>Por lo tanto, la clausura de <i>A</i> con respecto a <i>F</i> es <span class="math">$A^+ = \{A, B, C\}$</span>.</p>
             </div>
             <!-- Equivalencias de conjuntos de Dependencias Funcionales -->
+            <div class="tarjeta">
+                <h2>Equivalencias de conjuntos de Dependencias Funcionales</h2>
+                <p>Dos conjuntos de dependencias funcionales <i>F</i> y <i>G</i> son equivalentes si tienen la misma clausura, es decir, si <span class="math">$F^+ = G^+$</span>.</p>
+                <p>Para demostrar que dos conjuntos son equivalentes, debemos mostrar que cada dependencia en uno se puede inferir del otro y viceversa.</p>
+                <p>Esto implica que cualquier dependencia funcional en <i>F</i> se puede deducir a partir de las dependencias en <i>G</i>, y cualquier dependencia en <i>G</i> se puede deducir a partir de las dependencias en <i>F</i>.</p>
+                <div class="math">
+                    $F \equiv G \Longleftrightarrow F^+ = G^+$
+                </div>
+                <div class="math">
+                    $F \equiv G \Longleftrightarrow F \vDash G \wedge G \vDash F$
+                </div>
+                <p>Cuando <span class="math">$F \equiv G$</span>, decimos que <span class="math">$F$</span> cubre a <span class="math">$G$</span> y que <span class="math">$G$</span> cubre a <span class="math">$F$</span></p>
+                <h3>Ejemplo</h3>
+                <p><span class="math">$R=(A, B, C)$</span></p>
+                <p><span class="math">$F=\{A \rightarrow B, B \rightarrow C, C \rightarrow A\}$</span><br>
+                <span class="math">$G=\{C \rightarrow B, B \rightarrow A, A \rightarrow C\}$</span></p>
+            </div>
+
             <!-- Cubrimiento minimal -->
+            <div class="tarjeta">
+                <h2>Cubrimiento minimal</h2>
+                <p>Un conjunto de dependencias funcionales <i>F</i> es un cubrimiento minimal si:</p>
+                <ol>
+                    <li>No se puede eliminar ninguna dependencia de <i>F</i> sin cambiar su clausura.</li>
+                    <li>No se puede eliminar ningún atributo de los lados izquierdo de las dependencias en <i>F</i> sin cambiar su clausura.</li>
+                    <li>No se puede eliminar ningún atributo de los lados derecho de las dependencias en <i>F</i> sin cambiar su clausura.</li>
+                </ol>
+                <p>El cubrimiento minimal es útil para simplificar el conjunto de dependencias funcionales y facilitar el análisis y diseño de bases de datos.</p>
+                <p>Para encontrar un cubrimiento minimal, se pueden seguir estos pasos:</p>
+                <ol>
+                    <li>Eliminar dependencias redundantes: Si una dependencia se puede inferir a partir de las demás, se puede eliminar.</li>
+                    <li>Eliminar atributos redundantes: Si un atributo en el lado izquierdo de una dependencia no es necesario para mantener la clausura, se puede eliminar.</li>
+                    <li>Eliminar atributos innecesarios en el lado derecho: Si un atributo en el lado derecho de una dependencia no es necesario para mantener la clausura, se puede eliminar.</li>
+                </ol>
+                <p>El resultado es un conjunto de dependencias funcionales que es minimal y mantiene la misma clausura que el conjunto original.</p>
+                <p>$F_m$ es un cubrimiento minimal de $F$ si $F_m \equiv F$ y ademas:</p>
+                <ol>
+                    <li>$(X \rightarrow Y) \in F_m \Rightarrow |Y|=1$ <span class="aclaracion">(es decir, el lado derecho de cada DF tiene un solo atributo)</span></li><br><br><br>
+                    <li>$(X \rightarrow A) \in F_m \Rightarrow \nexists B \subset X | A \in \{X\\\{B\}\}^+$ <span class="aclaracion">(todo lado izquierdo es reducido)</span></li><br><br>
+                    <li>$(X \rightarrow A) \in F_m \Rightarrow (F_m \\ \{(X \rightarrow A)\}) \not\equiv F$ <span class="aclaracion">(no tiene dependencias redundantes)</span></li><br>
+                </ol>
+                <p>En general, la redundancia esta dada por transitividad.</p>
+            </div>
+
+            <!-- Ejemplo de cubrimiento minimal -->
+            <div class="tarjeta">
+                <h2>Ejemplo de cubrimiento minimal</h2>
+                <p>
+                    <span class="math">$R(A,B,C,D)$</span><br>
+                    <span class="math">$F=\{A \rightarrow BD,\hspace{3pt} B \rightarrow C,\hspace{3pt} C \rightarrow D,\hspace{3pt} BC \rightarrow D\}$</span>
+                </p>
+                <ol>
+                    <li><b>Aplico descomposicion</b><br>
+                    <span class="math">$\{
+                        A \rightarrow B,\hspace{3pt} 
+                        A \rightarrow D,\hspace{3pt} 
+                        B \rightarrow C,\hspace{3pt} 
+                        C \rightarrow D,\hspace{3pt} 
+                        BC \rightarrow D\}$</span></li><br>
+                    <li>$B$ <b>es redundante en</b> $BC \rightarrow D$<br>
+                    <span class="math">
+                        $\{
+                        A \rightarrow B,\hspace{3pt} 
+                        A \rightarrow D,\hspace{3pt} 
+                        B \rightarrow C,\hspace{3pt} 
+                        C \rightarrow D,\hspace{3pt} 
+                        C \rightarrow D
+                        \}$
+                    </span></li><br>
+                    <li><b>Aparece dos veces</b> $C\rightarrow D$<br>
+                    <span class="math">
+                        $\{
+                        A \rightarrow B,\hspace{3pt} 
+                        A \rightarrow D,\hspace{3pt} 
+                        B \rightarrow C,\hspace{3pt} 
+                        C \rightarrow D
+                        \}$
+                    </span></li><br>
+                    <li><b>$A \rightarrow D$ es redundante</b><br>
+                    <span class="math">
+                        $\{
+                        A \rightarrow B,\hspace{3pt} 
+                        B \rightarrow C,\hspace{3pt} 
+                        C \rightarrow D
+                        \}$
+                    </span></li>
+                </ol>
+
+                <p><span class="math">$F_m = \{
+                    A \rightarrow B,\hspace{3pt}
+                    B \rightarrow C,\hspace{3pt} 
+                    C\rightarrow D
+                    \}$</span>
+                </p>
+            </div>
+
+            <!-- Bibliografia -->
+            <div class="tarjeta">
+                <h2>Bibliografía</h2>
+                <p>Elmasri y Navathe, <i>Fundamentals of Database Systems</i></p>
+                <ul>
+                    <li>Capitulo 14, seccion 14.2</li>
+                    <li>Capitulo 15, seccion 15.1</li>
+                </ul>
+            </div>
         </div>
     </body>
 </html>

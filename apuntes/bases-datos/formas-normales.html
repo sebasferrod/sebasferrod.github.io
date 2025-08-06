@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/estilos/estilos-apuntes.css">
     <title>Formas Normales</title>
+    <!-- Scripts -->
+    <script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <div class="intro">
@@ -12,6 +24,123 @@
         <p>Para tener una correcta implementacion de la relacion en la base de datos, se aplican las formas normales. Las formas normales son condiciones que evitan la redundancia en las tablas y la correcta representacion de las relaciones.</p>
     </div>
     <div class="contenedor">
+
+        <!-- Motivacion para el uso de Formas Normales -->
+        <div class="tarjeta">
+            <h2>Motivacion</h2>
+            <p>Desarrollar una metodologia para <b>testear y mejorar los esquemas relacion</b>, partiendo de conocer sus <i>dependencias funcionales</i> y sus <i>claves</i>.</p>
+            <br>
+            <p><i>¿Que significa "mejorar" un esquema relacion?</i><br>
+            <ul>
+                <li>minimizar la redundancia de informacion</li>
+                <li>minimizar los problemas al insertar, eliminar o actualizar registros</li>
+            </ul></p>
+        </div>
+
+        <!-- Proceso de normalizacion -->
+        <div class="tarjeta">
+            <h2>Proceso de normalizacion</h2>
+            <ul>
+                <li>Testeamos si un esquema de relacion cumple con una determinada <i>forma normal</i></li>
+                <li>Si no la cumple, descomponemos esa relacion en relaciones mas pequeñas, para que cumplan con la forma normal que estamos testeando</li>
+            </ul>
+            <p>La descomposicion deberia cumplir las siguientes propiedades:
+                <ul>
+                    <li><b>Nonadditive join or lossless join property.</b> Al volver a unir las relaciones resultantes (con operacion <i>join</i>), no deben aparecer tuplas adicionales, que no estaban en la relacion original.</li>
+                    <br>
+                    <li><b>Dependency preservation property.</b> Cada una de las dependencias funcionales de la relacion original, debe estar representada en alguna de las relaciones resultantes despues de la descomposicion.</li>
+                </ul>
+            </p>
+        </div>
+
+        <!-- Claves y Superclaves -->
+        <div class="tarjeta">
+            <h2>Superclaves y claves</h2>
+            <h3>Superclaves</h3>
+            <p>Definicion:
+                <ul>
+                    <li>$X \rightarrow R \Rightarrow X$ es superclave de $R$</li>
+                    <li>$X^+ = R \Rightarrow X$ es superclave de $R$</li>
+                </ul>
+                Ambas afirmaciones son equivalentes.
+            </p>
+            <h3>Claves</h3>
+            <p>Definicion:<br>
+                <div class="contenedor formula">
+                    <div>
+                        $X$ es superclave de $R$<br><br>
+                        $\nexists \hspace{3pt} Y \subset X$ tal que $Y \rightarrow R$
+                    </div>
+                    <div style="align-self: center; margin-left: 20px;">
+                        $\}\Rightarrow X$ es clave de $R$<br>
+                    </div>
+                </div>
+                <p>Es decir, una clave es una <b>superclave minimal</b><br>
+                (si se le quita <i>cualquiera</i> de sus atributos, deja de ser superclave)</p>
+
+                <p><i><b>R</b></i> puede tener una o varias claves, a las que llamamos <i>claves candidatas</i>.</p>
+            </p>
+        </div>
+
+        <!-- Ejemplo de Clave vs Superclave -->
+        <div class="tarjeta">
+            <h2>Ejemplo</h2>
+            <div class="ejemplo">
+                <h3>Esquema:</h3>
+                estudiante(legajo, nombre)
+                <br>
+                <h3>Conjunto de DF:</h3>
+                <i>F</i>={legajo $\rightarrow$ nombre}
+                <br>
+                <h3>Clausuras:</h3>
+                $\{legajo, nombre\}^+ = \{legajo, nombre\}$<br>
+                $\{legajo\}^+ = \{legajo, nombre\}$<br>
+                $\{nombre\}^+ = \{nombre\}$<br>
+                <h3>Superclaves:</h3>
+                $\{legajo, nombre\}$<br>
+                $\{legajo\}$<br>
+                <h3>Clave:</h3>
+                $\{legajo\}$<br><br>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <h2>Modelo relacional</h2>
+            <p>¿Hay algun problema?</p>
+            <div class="ejemplo">
+                <h4>Esquema:</h4>
+                estudiante(nro_legajo, nombre, apellido, materias_aprobadas)
+                <h4>Instancia</h4>
+                <table>
+                    <tr>
+                        <th>nro_legajo</th>
+                        <th>nombre</th>
+                        <th>apellido</th>
+                        <th>materias_aprobadas</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Juan</td>
+                        <td>Perez</td>
+                        <td>{Programacion 1}</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Nicolas</td>
+                        <td>Polito</td>
+                        <td>{}</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Adrian</td>
+                        <td>Kamusky</td>
+                        <td>{Programacion 1, Programacion 2, Base de datos}</td>
+                    </tr>
+                </table>
+            </div>
+            <p>Por definicion, el modelo relacional no acepta atributos multivaluados</p>
+        </div>
+
         <!--Primera Forma normal (1NF)-->
         <div class="tarjeta">
             <h2>Primera forma normal (1NF)</h2>
@@ -19,6 +148,156 @@
             </p>
             <h3>Definicion alternativa</h3>
             <p>Una relacion <i>R</i> esta en 1NF si y solo si tiene al menos una clave</p>
+            <h3>Aclaracion:</h3>
+            <p>Si pensamos a toda relacion como un <b>conjunto</b> de tuplas, entonces <b>siempre</b> existe una clave. En ese caso, <i>toda relacion esta en 1NF</i>.</p>
+            <p>Cuando pensamos en tablas <i>(nivel fisico)</i>, es posible que no exista una PK (Primary Key)y entonces <i>si pueden existir filas duplicadas</i>.</p>
+        </div>
+
+        <!-- Caso 1 primera forma normal-->
+        <div class="tarjeta">
+            <h2>Primera forma normal</h2>
+            <div class="ejemplo">
+                <h4>Esquema</h4>
+                estudiante(<u>nro_legajo</u>, nombre, apellido, materias_aprobadas)
+                <h4>Instancia</h4>
+                <table>
+                    <tr>
+                        <th>nro_legajo</th>
+                        <th>nombre</th>
+                        <th>apellido</th>
+                        <th>materias_aprobadas</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Juan</td>
+                        <td>Perez</td>
+                        <td>{Programacion 1}</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Nicolas</td>
+                        <td>Polito</td>
+                        <td>{}</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Adrian</td>
+                        <td>Kamusky</td>
+                        <td>{Programacion 1, Programacion 2,<br> Base de datos}</td>
+                    </tr>
+                </table>
+                <div style="padding: 10px; text-align: center">$\Downarrow$</div>
+                <h4>Esquema</h4>
+                estudiante(<u>nro_legajo</u>, nombre, apellido, <u>materia_aprobada</u>)
+                <h4>Instancia</h4>
+                <table>
+                    <tr>
+                        <th>nro_legajo</th>
+                        <th>nombre</th>
+                        <th>apellido</th>
+                        <th>materia_aprobada</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Juan</td>
+                        <td>Perez</td>
+                        <td>Programacion 1</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>3</td>
+                        <td>Adrian</td>
+                        <td>Kamusky</td>
+                        <td>Programacion 1</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Adrian</td>
+                        <td>Kamusky</td>
+                        <td>Programacion 2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Adrian</td>
+                        <td>Kamusky</td>
+                        <td>Base de datos</td>
+                    </tr>
+                </table>
+
+            </div>
+            <p>La relacion esta en 1NF, pero... 
+                <ul>
+                    <li>se pierde informacion.</li>
+                    <li>hay redundancia.</li>
+                    <li>la clave de la relacion se vuelve artificiosa.</li>
+                </ul>
+            </p>
+        </div>
+
+        <!-- Caso 2 primera forma normal -->
+        <div class="tarjeta">
+            <h2>Primera forma normal</h2>
+            <p>¿Cual es el problema de esta relacion?</p>
+            <div class="ejemplo">
+                <h4>Esquema</h4>
+                estudiante(<u>nro_legajo</u>, nombre, apellido, materias_aprobada, semestre)
+                <h4>Dependencias funcionales:</h4>
+                <span class="concepto">nro_legajo $\rightarrow$ nombre</span><br>
+                <span class="concepto">nro_legajo $\rightarrow$ apellido</span><br>
+                nro_legajo, materia_aprobada $\rightarrow$ semestre
+                <h4>Instancia</h4>
+                <table>
+                    <tr>
+                        <th>nro_legajo</th>
+                        <th>nombre</th>
+                        <th>apellido</th>
+                        <th>materias_aprobada</th>
+                        <th>semestre</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Juan</td>
+                        <td>Perez</td>
+                        <td>Programacion 1</td>
+                        <td>2-2018</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Adrian</td>
+                        <td>Kamusky</td>
+                        <td>Programacion 1</td>
+                        <td>2-2017</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Adrian</td>
+                        <td>Kamusky</td>
+                        <td>Programacion 2</td>
+                        <td>1-2018</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Adrian</td>
+                        <td>Kamusky</td>
+                        <td>Base de datos</td>
+                        <td>1-2018</td>
+                    </tr>
+                </table>
+            </div>
+            <p>Hay atributos que dependen solo de una parte de la clave.</p>
+        </div>
+
+        <!-- SEGUNDA FORMA NORMAL -->
+        
+        <!-- Atributos primos y dependencias parciales -->
+        <div class="tarjeta">
+            <h2>Atributos primos y dependencias parciales</h2>
+            <p>Dados <i>(i)</i> una relacion <i>R</i>, <i>(ii)</i> un atributo $A \in R$ y <i>(iii)</i> un conjunto de dependencias funcionales <i>F</i> de <i>R</i>:</p>
+            <ul>
+                <li><b>Atributo primo</b>: $A$ es <b>primo</b> $\Leftrightarrow$ $A$ pertenece a alguna <i>clave candidata</i> de <i>R</i>.</li>
+                <li>$X \rightarrow Y \in F$ es <b>dependencia parcial</b> $\Leftrightarrow \exists Z \subset X$ tal que $F \vDash Z \rightarrow Y$</li>
+                <li>$Y$ <b>depende parcialmente</b> de $X \Leftrightarrow X \rightarrow Y$ es una dependencia parcial</li>
+            </ul>
         </div>
 
         <!--Segunda forma normal (2NF)-->
@@ -27,6 +306,114 @@
             <p>Una relacion <i>R</i> esta en <b>Segunda forma normal</b> (2NF) si y solo si todo atributo no primo <i>A</i> no es parcialmente dependiente de <i>alguna</i> clave de <i>R</i>.</p>
             <h3>Definicion alternativa</h3>
             <p>Una relacion <i>R</i> esta en <b>Segunda forma normal</b> (2NF) si y solo si todo atributo no primo <i>A</i> es completamente dependiente de <i>todas</i> las claves de <i>R</i>.</p>
+            <h3>Explicacion</h3>
+            <p>Esto quiere decir que ningun atributo no primo debe ser dependiente de una parte de la clave. O depende de toda la clave o se modifica la relacion descomponiendola.</p>
+            <p>La descomposicion se hace para evitar redundancia de datos. Por ejemplo si se quiere modificar el nombre de un alumno, no tenga que cambiar el nombre en cada entrada de la tabla. En vez de eso se descompone la tabla y se cambia en la tabla formada por el atributo no primo y su clave (antes parcial). Esto es mejor eficiente, solo se cambia el dato una vez.</p>
+        </div>
+
+        <!-- Descomposicion de 1NF a 2NF -->
+        <div class="tarjeta">
+            <h2>Descomposicion de 1NF a 2NF</h2>
+            <div class="ejemplo">
+                <h4>Esquema:</h4>
+                estudiante (<u>nro_legajo</u>, nombre, apellido, <u>materias_aprobada</u>, semestre) <span style="color: red">$\Rightarrow$ !2NF</span>
+                <h4>Dependencias funcionales:</h4>
+                nro_legajo $\rightarrow$ nombre <br> 
+                nro_legajo $\rightarrow$ apellido <br>
+                nro_legajo, materias_aprobada $\rightarrow$ semestre
+                <h4>Instancia:</h4>
+                <table>
+                    <tr>
+                        <th>nro_legajo</th>
+                        <th>nombre</th>
+                        <th>apellido</th>
+                        <th>materias_aprobada</th>
+                        <th>semestre</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Juan</td>
+                        <td>Perez</td>
+                        <td>Programacion 1</td>
+                        <td>2-2018</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Adrian</td>
+                        <td>Kamusky</td>
+                        <td>Programacion 1</td>
+                        <td>2-2017</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Adrian</td>
+                        <td>Kamusky</td>
+                        <td>Programacion 2</td>
+                        <td>1-2018</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Adrian</td>
+                        <td>Kamusky</td>
+                        <td>Base de datos</td>
+                        <td>1-2018</td>
+                    </tr>
+                </table>
+                <h4>Esquemas:</h4>
+                estudiante (<u>nro_legajo</u>, nombre, apellido) <span style="color: green">$\Rightarrow$ 2NF</span><br>
+                materia_aprobada(<u>nro_legajo</u>, materia, semestre) <span style="color: green">$\Rightarrow$ 2NF</span>
+                <h4>Instancias:</h4>
+                <table>
+                    <tr>
+                        <th>nro_legajo</th>
+                        <th>nombre</th>
+                        <th>apellido</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Juan</td>
+                        <td>Perez</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Nicolas</td>
+                        <td>Polito</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Adrian</td>
+                        <td>Kamusky</td>
+                    </tr>
+                </table>
+                <br>
+                <table>
+                    <tr>
+                        <th>nro_legajo</th>
+                        <th>materia</th>
+                        <th>semestre</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Programacion I</td>
+                        <td>2-2018</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Programacion I</td>
+                        <td>2-2017</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Programacion II</td>
+                        <td>1-2018</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Bases de datos</td>
+                        <td>1-2018</td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
         <!--Tercera forma normal (3NF)-->

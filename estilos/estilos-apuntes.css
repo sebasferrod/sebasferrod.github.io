@@ -21,8 +21,9 @@ body {
     margin: 5px;
     color: black;
     display: inline-block;
+    /*height:fit-content; La altura del contenedor tarjeta se ajusta al contenido. */
 }
-.indice {
+.indice {   
     background-color: #ffd39d;
     color: black;
     width: 85%;
@@ -64,6 +65,44 @@ body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 0.95em;
     color: #2c2c2c;
+    /*text-align: center;*/
+}
+li .aclaracion {
+    /*background-color: #f6f6f6;
+    /*
+    //padding: 10px;
+    //border-radius: 5px;
+    //margin: 10px 0px;
+    */
+    /*color: #2c2c2c;*/
+    margin-right: 100px;
+    float: right;
+}
+
+.ejemplo {
+    background-color: #c9c9c9;
+    border: solid 1px #212121;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0px;
+    color: #000000;
+}
+
+/*Se intento editar el estilo de los ejemplos de tabla especifica, pero no se logro.*/
+#contraejemplo_01{
+    table{
+        width: fit-content;
+        tr {
+            height: 5;
+            th{
+                width: 10;
+            }
+        }
+    }
+    
+    tr td{
+        width: 10
+    }
 }
 
 #presentacion {
