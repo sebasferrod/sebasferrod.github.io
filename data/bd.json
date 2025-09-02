@@ -1,0 +1,107 @@
+{
+	"categorias": [
+		{
+			"id": 1,
+			"nombre": "General"
+		},
+		{
+			"id": 2,
+			"nombre": "Tecnico"
+		},
+		{
+			"id": 3,
+			"nombre": "Gastronomia"
+		}
+	],
+	"experiencias": [
+		{
+			"id": 1,
+			"categoria": 1,
+			"empresa": "Empresa: Familiar",
+			"puesto": "Tallador",
+			"periodo": "2014/01 - 2014/06",
+			"descripcion": "Talla en madera de carteles publicitarios. Carpinteria. Lijado, corte."
+		},
+		{
+			"id": 2,
+			"categoria": 1,
+			"empresa": "Tecnicax",
+			"puesto": "Cadete",
+			"periodo": "2016/01 - 2018/06",
+			"descripcion": "Toma de medicion de contador de copias en impresoras y fotocopiadoras en diferentes ubicaciones. Traslado de paquetes."
+		},
+		{
+			"id": 3,
+			"categoria": 3,
+			"empresa": "Empresa: Cafeteria en Grand Bourg.",
+			"puesto": "Moso vendedor",
+			"periodo": "2018/06 - 2019/1",
+			"descripcion": "Venta de productos, delibery, cobro, retiro de vajilla."
+		},
+		{
+			"id": 4,
+			"categoria": 2,
+			"empresa": "Empresa: Cuenta propia.",
+			"puesto": "Reparacion de impresoras",
+			"periodo": "2019/08 - 2019/11",
+			"descripcion": "Reparacion de impresoras. Cambio de repuestos. Mantenimiento y limpieza."
+		},
+		
+		{
+			"id": 5,
+			"categoria": 3,
+			"empresa": "Empresa: La Farola",
+			"puesto": "Bachero",
+			"periodo": "2019/11 - 2019/12",
+			"descripcion": "Lavado de copas y platos. Preparacion de cafes. Dispensado de vevidas. Limpieza del bar."
+		},
+		{
+			"id": 6,
+			"categoria": 2,
+			"empresa": "Empresa: Cuenta propia.",
+			"puesto": "Gestion de ventas online y redes sociales.",
+			"periodo": "2020/03 - 2022/12",
+			"descripcion": "Gestion de redes sociales. Publicacion de productos. Respuesta a clientes. Venta de productos."
+		},
+		{
+			"id": 7,
+			"categoria": 2,
+			"empresa": "Empresa: Cuenta propia.",
+			"puesto": "Profesor particular de matematica",
+			"periodo": "2022/02 - 2022/12",
+			"descripcion": "Explicacion de temas universitarios. Matrices. Division de polinomios. Trigonometria."
+		},
+		{
+			"id": 8,
+			"categoria": 2,
+			"empresa": "Empresa: Cuenta propia.",
+			"puesto": "Reparacion electronicos",
+			"periodo": "2023/02 - 2023/07",
+			"descripcion": "Reparacion de fuentes. Medicion de resistencias. Cambio de componentes. Mediciones de continuidad. Soldaduras de estaño."
+		},
+		{
+			"id": 9,
+			"categoria": 2,
+			"empresa": "Empresa: Cuenta propia.",
+			"puesto": "Soporte técnico freelance",
+			"periodo": "2019/08 - 2023/07",
+			"descripcion": "Reparación de equipos electrónicos, armado de PCs, instalación de sistemas operativos y mantenimiento de hardware."
+		},
+		{
+			"id": 10,
+			"categoria": 3,
+			"empresa": "Empresa: Propuestas Gastronomicas",
+			"puesto": "Heladero artesanal",
+			"periodo": "2024/02 - 2025/03",
+			"descripcion": "Atencion de caja, preparado de helado artesanal en el momento, reposicion de insumos, limpieza."
+		},
+		{
+			"id": 11,
+			"categoria": 3,
+			"empresa": "Empresa: Menos Cero S.A.",
+			"puesto": "Heladero artesanal",
+			"periodo": "2025/04 - Actualidad",
+			"descripcion": "Atencion de caja, preparado de helado artesanal en el momento, reposicion de insumos, limpieza."
+		}
+	]
+}

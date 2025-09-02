@@ -1,3 +1,6 @@
+/*
+    * Script para el generador de CV.
+*/
 let experiencias = [];
 let arrayEducacion = [];
 let fotoACargar;

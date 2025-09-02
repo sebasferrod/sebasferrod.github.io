@@ -31,6 +31,14 @@ body {
   margin-top: 20px;
 }
 
+.presentacion {
+  text-align: center;
+  padding: 20px;
+  /*color:#000000;*/
+  background-color: #474747;
+  margin-bottom: 20px;
+}
+
 #cvForm{
   float: left;
   width: 350px;
@@ -103,11 +111,13 @@ body {
     max-width: 700px;
     min-width: 200px;
     min-height: 0;
-    flex: 1;
+    /*flex: 1;*/
     min-height: 0;
     height:fit-content;
+    /*
     overflow: auto;
     display: inline-block;
+    */
     border: 1px solid #ff0101;
     background-color: #0097b5;
     color: black;
