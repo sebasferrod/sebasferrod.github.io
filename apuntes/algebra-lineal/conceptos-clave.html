@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/estilos/estilos-apuntes.css">
+    <title>Algebra lineal - Conceptos clave</title>
+    <!-- Scripts -->
+    <script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="intro">
+        <h1>Conceptos clave de Algebra Lineal</h1>
+        <p>El álgebra lineal es una rama fundamental de las matemáticas que se centra en el estudio de los vectores, los espacios vectoriales (o espacios lineales), las transformaciones lineales y los sistemas de ecuaciones lineales. A continuación, se presentan algunos conceptos clave en álgebra lineal.</p>
+    </div>
+    <div class="contenedor">
+        <div class="tarjeta">
+            <h2>Operaciones</h2>
+            <ul>
+                <li><b>Producto interno o escalar:</b> <br><br><span class="formula">$x \cdot y = x_1 y_1 + x_1 y_1 + ... + x_n y_n$</span><br><br></li>
+                <li><b>Norma o magnitud de un vector:</b> <br><br><span class="formula">$\|x\| = \sqrt{x_1^2 + x_2^2 + ... + x_n^2}$</span><br><br></li>
+                <li><b>Coseno de un angulo":</b><div class="formula">$cos\theta = \frac{v \cdot x}{||v|| ||x||}$</div></li>
+                <li><b>Producto cruz:</b> <br><br><span class="formula">$x \times y = (x_2 y_3 - x_3 y_2, x_3 y_1 - x_1 y_3, x_1 y_2 - x_2 y_1)$</span></li>
+            </ul>
+        </div>
+        <div class="tarjeta">
+            <h2>Propiedades</h2>
+            <ul>
+                <li>Dos vectores no nulos v y w en $R^2$ o en $R^3$ son perpendiculares, en símbolos, v ⊥ w, si y solamente si v ·w = 0.</li>
+                <li><h3>Desigualdad de Cauchy-Schwarz</h3> <div class="formula">$|v · w| ≤ ||v|| ||w||$</div> <p>Si $v,w \neq (0,0)$ (respectivamente, $v,w \neq (0,0,0)$) entonces <div class="formula">$-1 \leq \frac{|v · w|}{||v|| ||w||} \leq 1$</div>.</p></li>
+            </ul>
+            
+
+        </div>
+        <div class="tarjeta">
+            <h2>Conceptos</h2>
+            <ul>
+                <li><b>Vector:</b> Un vector es una entidad matemática que tiene magnitud y dirección. Se representa como un conjunto ordenado de números (componentes) en un espacio n-dimensional.</li>
+                <li><b>Espacio vectorial:</b> Un espacio vectorial es un conjunto de vectores que cumple con ciertas propiedades, como la cerradura bajo la suma y la multiplicación por escalares.</li>
+                <li><b>Base:</b> Una base de un espacio vectorial es un conjunto de vectores linealmente independientes que generan todo el espacio.</li>
+                <li><b>Dimensión:</b> La dimensión de un espacio vectorial es el número de vectores en una base del espacio.</li>
+                <li><b>Matriz:</b> Una matriz es una tabla rectangular de números que representa una transformación lineal o un sistema de ecuaciones lineales.</li>
+                <li><b>Determinante:</b> El determinante es un valor escalar asociado a una matriz cuadrada que proporciona información sobre las propiedades de la transformación lineal representada por la matriz.</li>
+                <li><b>Rango:</b> El rango de una matriz es el número máximo de columnas (o filas) linealmente independientes en la matriz.</li>
+                <li><b>Sistema de ecuaciones lineales:</b> Un sistema de ecuaciones lineales es un conjunto de ecuaciones que involucran variables lineales. Se puede representar en forma matricial como $Ax = b$, donde $A$ es la matriz de coeficientes, $x$ es el vector de variables y $b$ es el vector de términos independientes.</li>
+                <li><b>Transformación lineal:</b> Una transformación lineal es una función entre dos espacios vectoriales que preserva las operaciones de suma y multiplicación por escalares.</li>
+                <li><b>Autovalores y autovectores:</b> Un autovector de una transformación lineal es un vector no nulo que solo cambia por un factor escalar cuando se aplica la transformación. El factor escalar correspondiente se llama autovalor.</li>
+            </ul>
+        </div>
+
+        <!-- Ecuacion parametrica de la recta -->
+        <div class="tarjeta">
+            <h2>Tipos de ecuaciones</h2>
+            <h3>Ecuacion parametrica de la recta</h3>
+            <p>Es la ecuacion de la recta que esta definida por un <i>vector director</i>, multiplicado por una variable, y un <i>vector posicion</i>, que indica el punto por donde pasa la recta.</p>
+            <h3>Ecuacion implicita de la recta</h3>
+            <p>Dados a,b ∈ R (alguno no nulo) y c en $R$, las soluciones en $R^2$ de la ecuación ax + by = c forman una recta L
+            <p>Es la ecuacion de la recta que esta definida por un vector normal, que es perpendicular a la recta, y un punto por donde pasa la recta.</p>
+        </div>
+    </div>
+</body>
+</html>
